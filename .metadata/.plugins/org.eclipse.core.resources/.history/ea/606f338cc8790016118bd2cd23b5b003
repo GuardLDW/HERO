@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+ 
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        
+    <Button 
+        android:id="@+id/button_already"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="15sp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"/>
+
+    
+    <Button
+        android:id="@+id/button_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_toRightOf="@id/button_already"
+        android:textSize="15sp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:text="设置时间">
+    </Button>
+    
+    <EditText
+        android:id="@+id/edittext_conclude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/button_data"
+        android:layout_alignTop="@id/button_data"
+        android:layout_toRightOf="@id/button_data"
+        android:layout_weight="2"
+        android:textSize="15sp"
+        android:hint="在此输入关键字" />
+    
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:layout_toRightOf="@+id/edittext_conclue">
+    </Button>
+    
+    </LinearLayout>
+    
+
+</RelativeLayout>

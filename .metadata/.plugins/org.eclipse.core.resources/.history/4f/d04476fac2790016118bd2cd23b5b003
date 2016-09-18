@@ -1,0 +1,33 @@
+package memorandum;
+
+import java.util.List;
+
+import com.example.memorandum.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ListView;
+
+public class Main extends Activity{
+
+	private Button backButton;
+	private Button refreshButton;
+	private ListView mainListView;
+	private List<Memo> memoList;
+	
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState); 
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.main);
+        
+        mainListView = (ListView)findViewById(R.id.listview_main);
+        
+        
+        MemoAdapter adapter = new MemoAdapter(Main.this, R.layout.memo, memoList);
+        
+        
+	}
+}

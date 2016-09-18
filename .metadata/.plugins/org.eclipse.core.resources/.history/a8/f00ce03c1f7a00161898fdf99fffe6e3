@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#F0E68C" >
+
+
+
+
+
+        <EditText
+            android:id="@+id/edittext_conclude"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="请在此输入内容"
+            android:textSize="15sp"
+            android:singleLine="true" >
+
+        </EditText>
+
+
+                
+        <Button
+            android:id="@+id/button_longtext"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textSize="15sp"
+            android:background="@drawable/long" />
+        
+        <Button
+            android:id="@+id/button_already"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textSize="15sp"
+            android:background="@drawable/notalready"/>
+
+        
+       <Button
+            android:id="@+id/button_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:text="Time"
+            android:textSize="15sp"
+            android:background="#00FFFFFF" />
+                
+        <Button
+            android:id="@+id/button_delete"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textSize="15sp" />
+        
+    </LinearLayout>
+
+</RelativeLayout>

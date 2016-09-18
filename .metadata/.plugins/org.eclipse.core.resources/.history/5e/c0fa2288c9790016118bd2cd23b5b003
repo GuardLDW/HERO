@@ -1,0 +1,33 @@
+package memorandum;
+
+import java.util.List;
+
+import android.content.Context;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MemoAdapter extends ArrayAdapter<Memo>{
+
+	//用于存储ListView子项的Id
+	private int resourceId;
+	
+	
+	//继承ArrayAdapter的构造方法，textViewResourceId为View的ListView子项布局的Id,object为要适配的数据
+	public MemoAdapter(Context context, int textViewResourceId, List<Memo> objects) {
+		super(context, textViewResourceId, objects);
+		resourceId = textViewResourceId;
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	class ViewHolder{		
+		
+		Button alreadyButton;
+		Button setDataButton;
+		EditText concludeEditText;
+		Button deleteButton;
+		Button longtextButton;
+	}
+
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+
+
+
+
+        <EditText
+            android:id="@+id/edittext_conclude"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="在此输入关键字"
+            android:textSize="15sp" >
+
+        </EditText>
+
+        <Button
+            android:id="@+id/button_already"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textSize="15sp"
+            android:layout_weight="0.2"
+            android:background="@drawable/already"/>
+                
+        <Button
+            android:id="@+id/button_longtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textSize="15sp" />
+
+        
+       <Button
+            android:id="@+id/button_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:text="Time"
+            android:textSize="15sp" />
+                
+        <Button
+            android:id="@+id/button_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textSize="15sp" />
+        
+    </LinearLayout>
+
+</RelativeLayout>
