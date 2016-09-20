@@ -63,7 +63,7 @@
                 
         <receiver android:name = "receiver.NetworkReceiver">
             <intent-filter>
-                <action android:name = "receiver.checknetwork"/>
+                <action android:name = "com.hero.app.receiver.checknetwork"/>
             </intent-filter>
         </receiver>
     </application>

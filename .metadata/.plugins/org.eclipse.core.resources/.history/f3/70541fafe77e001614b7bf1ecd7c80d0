@@ -1,0 +1,46 @@
+package receiver;
+
+import activity.LogIn;
+import activity.Main;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.widget.Toast;
+
+
+/*
+ * 判断当前网络是否可用
+ */
+
+
+public class NetworkReceiver extends BroadcastReceiver{
+	
+	
+	@Override
+	public void onReceive(Context context, Intent intent) {//需要的参数放置在intent中的额外值中
+		
+		ConnectivityManager connectionManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);//getSystemService只有通过活动才能调用，得到系统服务类		
+		NetworkInfo networkInfo = connectionManager.getActiveNetworkInfo();//得到NetworkInfo的实例
+		
+		Intent intent = getIntent();
+		String key = intent.getStringExtra("key");
+		
+		if(networkInfo != null && networkInfo.isAvailable()){
+			if (key.equals("house")){
+				Intent intent1 = new Intent(Main.this, LogIn.class);
+				startActivity(intent1);
+			}else if(key.equals("register")){
+				
+			}else if(key.equals("login")){
+				
+			}
+		}
+		else{
+			Toast.makeText(context, "network is unavailable", Toast.LENGTH_SHORT).show();
+		}
+	}
+
+}
+

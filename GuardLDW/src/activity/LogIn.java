@@ -67,7 +67,8 @@ public class LogIn extends Activity{
 				username = usernameEditText.getText().toString();
 				password = passwordEditText.getText().toString();
 				
-				if (NetworkReceiver.network == 1){
+				//if (NetworkReceiver.network == 1){
+				if(true){
 					HttpUtil.sendHttpGetRequest("http://10.0.2.2/user.json", new HttpCallBackListener(){
 
 						@Override
@@ -103,7 +104,7 @@ public class LogIn extends Activity{
 						}
 						
 					});
-				}else if(NetworkReceiver.network == 0){
+				}else if(true){
 					Toast.makeText(LogIn.this, "network is unavailable", Toast.LENGTH_SHORT).show();
 				}
 			}

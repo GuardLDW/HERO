@@ -14,10 +14,10 @@ import android.widget.TextView;
 import util.ActivityControl;
 
 public class Speical extends Activity{
-	
-	
+		
 	private Button specialButton;
 	private TextView contentTextView;
+	
 	
 	protected void onCreate(Bundle savedInstanceState) {
     	

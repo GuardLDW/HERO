@@ -36,10 +36,14 @@ public class Register extends Activity{
 	private Button registerButton;
 	private Button backButton;
 	private TextView registerResultTextView;
-	private Boolean result = false;
+	//存储解析json数据后返回的User的list
 	private List <User> userList = new ArrayList<User>();
 	private String username = "";
 	private String password = "";
+	//显示注册的结果
+	private Boolean result = false;
+	//成功注册的账户
+	private User successUser;
 	
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,73 +67,80 @@ public class Register extends Activity{
         usernameEditText = (EditText)findViewById(R.id.edittext_registername);
         passwordEditText = (EditText)findViewById(R.id.edittext_registerpassword);
         registerResultTextView = (TextView)findViewById(R.id.textview_registerresult);
+        registerButton = (Button)findViewById(R.id.button_register);
         
         registerResultTextView.setText("显示注册结果");
         
-
-
         
-        //注册按钮
-        registerButton = (Button)findViewById(R.id.button_register);
+        //注册按钮  
         registerButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {	
 				
+				//点击注册时，获取当前EditText上的username与password
 				username = usernameEditText.getText().toString();
 				password = passwordEditText.getText().toString();
                 
                 //有网络的情况允许注册	
-				Intent intent = new Intent("com.hero.app.receiver.checknetwork");	
+				Intent intent = new Intent("com.hero.app.receiver.checknetwork");
+				intent.putExtra("key", "registerbutton");
 				sendBroadcast(intent);		
-				if(NetworkReceiver.network == 1){			
-					
+				//if(NetworkReceiver.network == 1){			
+					if(true){
 					//用户名与密码长度都在1-10，并且用户名不重复
 					if (username.length() > 0 && username.length() <= 10  && password.length() > 0 && password.length() <= 10){				
 						HttpUtil.sendHttpGetRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", new HttpCallBackListener(){
-						@Override
 						
-						public void onFinish(String response) {							
-							
-							userList = AnalyzeData.handleUserResponese(response);//对返回的数据进行解析,返回User对象的链表							
-							//已有注册用户时，查询是否有用户名相同的情况
-							if (userList != null){
-
-								for(User user : userList){
-									if (username.equals(user.getUsername())){
-										result = false;
+							@Override		
+							public void onFinish(String response) {	
+								
+								userList = AnalyzeData.handleUserResponese(response);//对返回的数据进行解析,返回User对象的链表							
+								//已有注册用户时，查询是否有用户名相同的情况
+								if (userList != null){
+									
+									for(User user : userList){	
+										
+										if (username.equals(user.getUsername())){
+											
+											result = false;	
+										}else{
+												
+											result = true;
+											}
+										}	
+									//无注册用户时
 									}else{
 										result = true;
 										}
-									}					
-							}else{//无注册用户时
-								result = true;
-							}
-						}
+								}
 						@Override
 						public void onError(Exception e) {	
-							Log.d("what", "bug");
+							Log.d("what", "getInfo fail");
 						}	
 					});
-
-				}else{//用户名与密码长度不符合要求
-					result = false;
-				
-				}	
-				}else if(NetworkReceiver.network == 0){
+					//用户名与密码长度不符合要求
+					}else{
+						result = false;
+						}	
+					}
+				//无网络状态下点击注册按钮
+				else {
 					Toast.makeText(Register.this, "network is unavailable", Toast.LENGTH_SHORT).show();
-				}
+					}
 			
 			}
-        });
+			});
+        
         
 		   //注册成功后，将该用户的用户名与密码,评论与点赞数，游戏进度（初始状态）提交到服务器
 	       if(result){
 	        	registerResultTextView.setText("注册成功");
-	        	User successUser = new User();
+	        	//为successUser分配空间
+	        	successUser = new User();
 	        	successUser.setUsername(username);
 	        	successUser.setPassword(password);
 	        	successUser.setComment("");
-	        	HttpUtil.sendHttpPostRequest("http://10.0.2.2/user.json", successUser, new HttpCallBackListener(){
+	        	HttpUtil.sendHttpPostRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", successUser, new HttpCallBackListener(){
 
 					@Override
 					public void onFinish(String response) {
