@@ -69,10 +69,10 @@ public class HeroDB {
 	}
 	
 	//更新数据库中的用户评论
-	public static void updateUserComment(String comment, String username){
+	public static void updateUserComment(String comment, String username,String DB_name){
 		ContentValues values = new ContentValues();
 		values.put("user_comment", comment);
-		db.update("DB_name", values, "user_name = ?", new String[]{comment});
+		db.update(DB_name, values, "user_name = ?", new String[]{comment});
 	}
 
 	

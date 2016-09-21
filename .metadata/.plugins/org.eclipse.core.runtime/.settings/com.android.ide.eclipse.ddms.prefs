@@ -8,3 +8,4 @@ logcat.view.colsize.TID=57
 logcat.view.colsize.Tag=118
 logcat.view.colsize.Text=612
 logcat.view.colsize.Time=149
+logcat.view.filters.list=name\: 'what', tag\: 'what', text\: '', pid\: '', app\: '', level\: 'verbose', 

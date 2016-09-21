@@ -66,6 +66,7 @@
                 android:hint="输入用户名" />
 
             <TextView
+                android:id="@+id/textview_loginresult"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/edittext_loginpassword"

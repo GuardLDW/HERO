@@ -18,8 +18,11 @@
 <fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.view.ViewGroup"/>
-<fullyQualifiedTypeName name="com.hero.app.R.id"/>
 <fullyQualifiedTypeName name="activity.House"/>
 <fullyQualifiedTypeName name="activity.Register"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="com.hero.app.R.id"/>
+<fullyQualifiedTypeName name="util.HttpCallBackListener"/>
+<fullyQualifiedTypeName name="db.HeroDB"/>
 </qualifiedTypeNameHistroy>

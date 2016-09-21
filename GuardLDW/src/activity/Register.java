@@ -40,8 +40,8 @@ public class Register extends Activity{
 	private List <User> userList = new ArrayList<User>();
 	private String username = "";
 	private String password = "";
-	//显示注册的结果
-	private Boolean result = false;
+	//显示注册的结果,1为成功，2为失败
+	private int result = 0;
 	//成功注册的账户
 	private User successUser;
 	
@@ -76,64 +76,63 @@ public class Register extends Activity{
         registerButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {	
+							
+                //有网络的情况允许注册，无网络状况回到主界面
+				Intent intent = new Intent("com.hero.app.receiver.checknetwork");
+				intent.putExtra("key", "registerbutton");
+				sendBroadcast(intent);	
 				
 				//点击注册时，获取当前EditText上的username与password
 				username = usernameEditText.getText().toString();
 				password = passwordEditText.getText().toString();
                 
-                //有网络的情况允许注册	
-				Intent intent = new Intent("com.hero.app.receiver.checknetwork");
-				intent.putExtra("key", "registerbutton");
-				sendBroadcast(intent);		
-				//if(NetworkReceiver.network == 1){			
-					if(true){
-					//用户名与密码长度都在1-10，并且用户名不重复
-					if (username.length() > 0 && username.length() <= 10  && password.length() > 0 && password.length() <= 10){				
-						HttpUtil.sendHttpGetRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", new HttpCallBackListener(){
+	
+		
+			   //用户名与密码长度都在1-10，并且用户名不重复
+				if (username.length() > 0 && username.length() <= 10  && password.length() > 0 && password.length() <= 10){				
+					HttpUtil.sendHttpGetRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", new HttpCallBackListener(){
 						
-							@Override		
-							public void onFinish(String response) {	
-								
-								userList = AnalyzeData.handleUserResponese(response);//对返回的数据进行解析,返回User对象的链表							
-								//已有注册用户时，查询是否有用户名相同的情况
-								if (userList != null){
+						@Override		
+						public void onFinish(String response) {	
+							
+							Log.d("what", "have response");	
+							
+							userList = AnalyzeData.handleUserResponese(response);//对返回的数据进行解析,返回User对象的链表							
+							//已有注册用户时，查询是否有用户名相同的情况
+							if (userList != null){
 									
-									for(User user : userList){	
+								for(User user : userList){	
 										
-										if (username.equals(user.getUsername())){
+									if (username.equals(user.getUsername())){
 											
-											result = false;	
-										}else{
-												
-											result = true;
-											}
-										}	
-									//无注册用户时
+										result = 2;	
 									}else{
-										result = true;
+												
+										result = 1;
 										}
-								}
-						@Override
-						public void onError(Exception e) {	
-							Log.d("what", "getInfo fail");
-						}	
-					});
-					//用户名与密码长度不符合要求
-					}else{
-						result = false;
-						}	
-					}
-				//无网络状态下点击注册按钮
-				else {
-					Toast.makeText(Register.this, "network is unavailable", Toast.LENGTH_SHORT).show();
-					}
-			
-			}
+									}	
+								//无注册用户时
+								}else{
+									result = 1;
+									}
+							}
+					@Override
+					public void onError(Exception e) {	
+						//没有正确返回数据
+						Log.d("what", "getInfo fail");
+					}	
+				});
+				//用户名与密码长度不符合要求
+				}else{
+					result = 2;
+					}	
+				}
+
 			});
         
         
-		   //注册成功后，将该用户的用户名与密码,评论与点赞数，游戏进度（初始状态）提交到服务器
-	       if(result){
+		   //注册成功后，将该用户的用户名与密码,评论（初始状态）提交到服务器
+	       if(result == 1){
 	        	registerResultTextView.setText("注册成功");
 	        	//为successUser分配空间
 	        	successUser = new User();
@@ -144,14 +143,14 @@ public class Register extends Activity{
 
 					@Override
 					public void onFinish(String response) {
-						// TODO Auto-generated method stub						
+						Log.d("what", "register success");				
 					}
 					@Override
 					public void onError(Exception e) {
 						// TODO Auto-generated method stub						
 					}	        	
 	        	});
-	        }else{
+	        }else if(result == 2){
 	        	registerResultTextView.setText("注册失败，请重新注册");
 	        }
 	}
