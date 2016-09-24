@@ -329,7 +329,12 @@ public class StartGame extends Activity{
         
         //进入该活动时，首先根据i值加载对话内容与背景图片
         dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));
-        gameImage.setImageResource(R.drawable.game1);
+        if(Main.i >= 0 && Main.i < 66){
+            gameImage.setImageResource(R.drawable.game1);
+        }else if(Main.i >= 66){
+        	gameImage.setImageResource(R.drawable.game2);
+        }
+
         
  
         
@@ -341,8 +346,11 @@ public class StartGame extends Activity{
 				Boolean once = true;
 				if(once){
 					Main.i = Main.i + 1;
-					dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));
+					dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));					
 					once = false;
+					}
+				if(Main.i == 66){
+					gameImage.setImageResource(R.drawable.game2);
 					}
 				}	
 			});
