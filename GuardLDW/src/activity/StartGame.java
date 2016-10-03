@@ -329,10 +329,36 @@ public class StartGame extends Activity{
         
         //进入该活动时，首先根据i值加载对话内容与背景图片
         dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));
-        if(Main.i >= 0 && Main.i < 66){
+        if(Main.i >= 0 && Main.i < 5){
             gameImage.setImageResource(R.drawable.game1);
-        }else if(Main.i >= 66){
+        }else if(Main.i >= 5 && Main.i < 62){
         	gameImage.setImageResource(R.drawable.game2);
+        }else if(Main.i >= 62 && Main.i < 102){
+        	gameImage.setImageResource(R.drawable.game3);
+        }else if(Main.i >= 102 && Main.i < 144){
+        	gameImage.setImageResource(R.drawable.game4);
+        }else if(Main.i >= 144 && Main.i < 166){
+        	gameImage.setImageResource(R.drawable.game5);
+        }else if(Main.i >= 166 && Main.i < 221){
+        	gameImage.setImageResource(R.drawable.game6);
+        }else if(Main.i >= 221 && Main.i < 247){
+        	gameImage.setImageResource(R.drawable.game7);
+        }else if(Main.i >= 247 && Main.i < 264){
+        	gameImage.setImageResource(R.drawable.game8);
+        }else if(Main.i >= 264 && Main.i < 279){
+        	gameImage.setImageResource(R.drawable.game9);
+        }else if(Main.i >= 279 && Main.i < 297){
+        	gameImage.setImageResource(R.drawable.game7);
+        }else if(Main.i >= 297 && Main.i < 331){
+        	gameImage.setImageResource(R.drawable.game10);
+        }else if(Main.i >= 331 && Main.i < 362){
+        	gameImage.setImageResource(R.drawable.game11);
+        }else if(Main.i >= 362 && Main.i < 377){
+        	gameImage.setImageResource(R.drawable.game8);
+        }else if(Main.i >= 377 && Main.i < 397){
+        	gameImage.setImageResource(R.drawable.game12);
+        }else if(Main.i >= 397){
+        	gameImage.setImageResource(R.drawable.game13);
         }
 
         
@@ -349,8 +375,30 @@ public class StartGame extends Activity{
 					dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));					
 					once = false;
 					}
-				if(Main.i == 66){
+				if(Main.i == 5){
 					gameImage.setImageResource(R.drawable.game2);
+					}else if(Main.i == 62){
+						gameImage.setImageResource(R.drawable.game3);
+					}else if(Main.i == 102){
+						gameImage.setImageResource(R.drawable.game4);
+					}else if(Main.i == 144){
+						gameImage.setImageResource(R.drawable.game5);
+					}else if(Main.i == 166){
+						gameImage.setImageResource(R.drawable.game6);
+					}else if(Main.i == 221 || Main.i == 279){
+						gameImage.setImageResource(R.drawable.game7);
+					}else if(Main.i == 247 || Main.i == 362){
+						gameImage.setImageResource(R.drawable.game8);
+					}else if(Main.i == 264){
+						gameImage.setImageResource(R.drawable.game9);
+					}else if(Main.i == 297){
+						gameImage.setImageResource(R.drawable.game10);
+					}else if(Main.i == 331){
+						gameImage.setImageResource(R.drawable.game11);
+					}else if(Main.i == 377){
+						gameImage.setImageResource(R.drawable.game12);
+					}else if(Main.i == 397){
+						gameImage.setImageResource(R.drawable.game13);
 					}
 				}	
 			});
