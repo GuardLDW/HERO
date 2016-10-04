@@ -29,7 +29,8 @@ public final class R {
         public static final int game7=0x7f02000f;
         public static final int game8=0x7f020010;
         public static final int game9=0x7f020011;
-        public static final int ic_launcher=0x7f020012;
+        public static final int hero=0x7f020012;
+        public static final int ic_launcher=0x7f020013;
     }
     public static final class id {
         public static final int button_backtotitle=0x7f080005;

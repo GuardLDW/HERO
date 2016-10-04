@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hero.app"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name = "android.permission.INTERNET"/>
+    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE"/>
+    
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/hero"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="activity.Main"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        
+        <activity 
+            android:name = "activity.Register">          
+        </activity>
+        
+        
+        <activity 
+            android:name = "activity.LogIn">          
+        </activity>
+        
+        
+        <activity 
+            android:name = "activity.StartGame"
+            android:screenOrientation="landscape">          
+        </activity>
+        
+        
+        <activity 
+            android:name = "activity.LoadGame"
+            android:screenOrientation="landscape">          
+        </activity>
+        
+        <activity 
+            android:name = "activity.Set"
+            android:screenOrientation="landscape">          
+        </activity>
+        
+        <activity 
+            android:name = "activity.House">          
+        </activity>
+        
+        <activity 
+            android:name = "activity.Special">          
+        </activity>
+                
+        <receiver android:name = "receiver.NetworkReceiver">
+            <intent-filter>
+                <action android:name = "com.hero.app.receiver.checknetwork"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

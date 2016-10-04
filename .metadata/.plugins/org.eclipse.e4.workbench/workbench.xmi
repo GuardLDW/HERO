@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_En7uoH1rEeazSNKnGt0f3A" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_En7uoX1rEeazSNKnGt0f3A" bindingContexts="_En-Lan1rEeazSNKnGt0f3A">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;ic_launcher-web.png&quot; tooltip=&quot;GuardLDW/ic_launcher-web.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/ic_launcher-web.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;proguard-project.txt&quot; tooltip=&quot;GuardLDW/proguard-project.txt&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/proguard-project.txt&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;project.properties&quot; tooltip=&quot;GuardLDW/project.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/project.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.manifest.ManifestEditor&quot; name=&quot;AndroidManifest.xml&quot; tooltip=&quot;GuardLDW/AndroidManifest.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/AndroidManifest.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;set.xml&quot; tooltip=&quot;GuardLDW/res/layout/set.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/set.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;main.xml&quot; tooltip=&quot;GuardLDW/res/layout/main.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/main.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;game.xml&quot; tooltip=&quot;GuardLDW/res/layout/game.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/game.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;special.xml&quot; tooltip=&quot;GuardLDW/res/layout/special.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/special.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LoadGame.java&quot; tooltip=&quot;GuardLDW/src/activity/LoadGame.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/LoadGame.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;House.java&quot; tooltip=&quot;GuardLDW/src/activity/House.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/House.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Main.java&quot; tooltip=&quot;GuardLDW/src/activity/Main.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/Main.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Special.java&quot; tooltip=&quot;GuardLDW/src/activity/Special.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/Special.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Fold.java&quot; tooltip=&quot;GuardLDW/src/util/Fold.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/util/Fold.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;house.xml&quot; tooltip=&quot;GuardLDW/res/layout/house.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/house.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;StartGame.java&quot; tooltip=&quot;GuardLDW/src/activity/StartGame.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/StartGame.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.manifest.ManifestEditor&quot; name=&quot;AndroidManifest.xml&quot; tooltip=&quot;GuardLDW/AndroidManifest.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/AndroidManifest.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;ic_launcher-web.png&quot; tooltip=&quot;GuardLDW/ic_launcher-web.png&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/ic_launcher-web.png&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;proguard-project.txt&quot; tooltip=&quot;GuardLDW/proguard-project.txt&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/proguard-project.txt&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;project.properties&quot; tooltip=&quot;GuardLDW/project.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/project.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;set.xml&quot; tooltip=&quot;GuardLDW/res/layout/set.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/set.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;main.xml&quot; tooltip=&quot;GuardLDW/res/layout/main.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/main.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;game.xml&quot; tooltip=&quot;GuardLDW/res/layout/game.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/game.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;special.xml&quot; tooltip=&quot;GuardLDW/res/layout/special.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/special.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LoadGame.java&quot; tooltip=&quot;GuardLDW/src/activity/LoadGame.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/LoadGame.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;House.java&quot; tooltip=&quot;GuardLDW/src/activity/House.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/House.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Main.java&quot; tooltip=&quot;GuardLDW/src/activity/Main.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/Main.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Special.java&quot; tooltip=&quot;GuardLDW/src/activity/Special.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/Special.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Fold.java&quot; tooltip=&quot;GuardLDW/src/util/Fold.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/util/Fold.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot; name=&quot;house.xml&quot; tooltip=&quot;GuardLDW/res/layout/house.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/res/layout/house.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;StartGame.java&quot; tooltip=&quot;GuardLDW/src/activity/StartGame.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/GuardLDW/src/activity/StartGame.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_En7uoX1rEeazSNKnGt0f3A" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_En7uon1rEeazSNKnGt0f3A" label="%trimmedwindow.label.eclipseSDK" x="0" y="0" width="1158" height="780">
@@ -188,7 +188,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_En8Vx31rEeazSNKnGt0f3A" elementId="org.eclipse.egit.ui.RepositoriesView" toBeRendered="false" ref="_En89zX1rEeazSNKnGt0f3A"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_En8VyH1rEeazSNKnGt0f3A" containerData="8625" selectedElement="_En8VyX1rEeazSNKnGt0f3A">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_En8VyH1rEeazSNKnGt0f3A" containerData="8625" selectedElement="_En8V0n1rEeazSNKnGt0f3A">
               <children xsi:type="basic:PartSashContainer" xmi:id="_En8VyX1rEeazSNKnGt0f3A" containerData="7197" selectedElement="_En8Vyn1rEeazSNKnGt0f3A" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_En8Vyn1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.editorss" containerData="8368" ref="_En8XKX1rEeazSNKnGt0f3A"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_En8Vy31rEeazSNKnGt0f3A" containerData="1632" selectedElement="_En8Vzn1rEeazSNKnGt0f3A">
@@ -203,7 +203,7 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_En8V0n1rEeazSNKnGt0f3A" elementId="bottom" containerData="2803" selectedElement="_En8V231rEeazSNKnGt0f3A">
+              <children xsi:type="basic:PartStack" xmi:id="_En8V0n1rEeazSNKnGt0f3A" elementId="bottom" containerData="2803" selectedElement="_En8V131rEeazSNKnGt0f3A">
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
                 <tags>Android</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_En8V031rEeazSNKnGt0f3A" elementId="org.eclipse.ui.views.ProblemView" ref="_En88131rEeazSNKnGt0f3A"/>
@@ -250,7 +250,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_En8XKX1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.editorss" selectedElement="_En8XKn1rEeazSNKnGt0f3A">
-      <children xsi:type="basic:PartStack" xmi:id="_En8XKn1rEeazSNKnGt0f3A" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_2weFwIoyEeaCT4ICRWl_ag">
+      <children xsi:type="basic:PartStack" xmi:id="_En8XKn1rEeazSNKnGt0f3A" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_vzWB8Io6EeafBdoVeezQ1Q">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <children xsi:type="basic:Part" xmi:id="_En8XK31rEeazSNKnGt0f3A" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="House.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
@@ -869,6 +869,12 @@
           <tags>org.eclipse.ui.DefaultTextEditor</tags>
           <tags>removeOnHide</tags>
         </children>
+        <children xsi:type="basic:Part" xmi:id="_vzWB8Io6EeafBdoVeezQ1Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="GuardLDW Manifest" iconURI="platform:/plugin/com.android.ide.eclipse.adt/icons/android_file.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.android.ide.eclipse.editors.manifest.ManifestEditor&quot; name=&quot;AndroidManifest.xml&quot; partName=&quot;GuardLDW Manifest&quot; title=&quot;GuardLDW Manifest&quot; tooltip=&quot;GuardLDW/AndroidManifest.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/GuardLDW/AndroidManifest.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>com.android.ide.eclipse.editors.manifest.ManifestEditor</tags>
+          <tags>removeOnHide</tags>
+        </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_En88yn1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif" tooltip="" closeable="true">
@@ -966,7 +972,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>highlighted</tags>
       <menus xmi:id="_En883X1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -979,7 +984,7 @@
         <tags>menuContribution:popup</tags>
         <tags>popup:org.eclipse.ui.MessageConsole.#ContextMenu</tags>
       </menus>
-      <toolbar xmi:id="_En884H1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.console.ConsoleView" visible="false"/>
+      <toolbar xmi:id="_En884H1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.console.ConsoleView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_En887X1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.views.BookmarkView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Bookmarks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/bkmrk_nav.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.BookmarksView"/>
@@ -1193,7 +1198,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_En890n1rEeazSNKnGt0f3A" elementId="com.android.ide.eclipse.ddms.views.LogCatView"/>
+      <toolbar xmi:id="_En890n1rEeazSNKnGt0f3A" elementId="com.android.ide.eclipse.ddms.views.LogCatView" visible="false"/>
     </sharedElements>
     <trimBars xmi:id="_En89031rEeazSNKnGt0f3A" elementId="org.eclipse.ui.main.toolbar">
       <children xsi:type="menu:ToolBar" xmi:id="_En891H1rEeazSNKnGt0f3A" elementId="group.file" toBeRendered="false">
@@ -1202,7 +1207,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_En891n1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PsLx4IoyEeaCT4ICRWl_ag" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_EoApJn1rEeazSNKnGt0f3A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_qCmdQIo4EeafBdoVeezQ1Q" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_EoApJn1rEeazSNKnGt0f3A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_En89431rEeazSNKnGt0f3A" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1220,7 +1225,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_En9j1X1rEeazSNKnGt0f3A" elementId="org.eclipse.jdt.ui.JavaElementCreationActionSet">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_En9j2n1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
+      <children xsi:type="menu:ToolBar" xmi:id="_En9j2n1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_En9j431rEeazSNKnGt0f3A" elementId="org.eclipse.debug.ui.launchActionSet">
@@ -1244,7 +1249,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_En9j8n1rEeazSNKnGt0f3A" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PsU70IoyEeaCT4ICRWl_ag" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_EoAoy31rEeazSNKnGt0f3A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_qDAF4Io4EeafBdoVeezQ1Q" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_EoAoy31rEeazSNKnGt0f3A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_En9j_n1rEeazSNKnGt0f3A" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
