@@ -27,6 +27,7 @@ public class House extends Activity{
 	private EditText commentEditText;
 	private Button commentButton;
 	private String comment;
+	private Button backButton;
 	//提交评论后，在数据库中更改当前对象的comment属性
 	private User user;
 	
@@ -38,6 +39,7 @@ public class House extends Activity{
 		
 		ActivityControl.addActivity(this);
 		super.onCreate(savedInstanceState); 
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.house);
         
@@ -45,8 +47,21 @@ public class House extends Activity{
         //commentListView的适配器
         final ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(House.this, android.R.layout.simple_list_item_1, commentList);
         
+        backButton = (Button)findViewById(R.id.button_housegameback);
         commentEditText = (EditText)findViewById(R.id.edittext_comment);
         commentButton = (Button)findViewById(R.id.button_comment);
+        
+        backButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(House.this, Main.class);
+				startActivity(intent);
+				
+			}
+        	
+        });
+        
         commentButton.setOnClickListener(new OnClickListener(){
 
 			@Override

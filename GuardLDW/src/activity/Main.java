@@ -134,8 +134,8 @@ public class Main extends Activity{
         specialButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				if(Fold.load("gaonai", Main.this).equals("1") && Fold.load("shiixn", Main.this).equals("1")){        	
-					Intent intent = new Intent(Main.this, Speical.class);
+				if(Fold.load("gaonai", Main.this).equals("1") && Fold.load("shixin", Main.this).equals("1")){        	
+					Intent intent = new Intent(Main.this, Special.class);
 					startActivity(intent);
 				}else{
 					Toast.makeText(Main.this, "请先通关所有线路", Toast.LENGTH_SHORT).show();

@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Menu;
@@ -38,6 +39,8 @@ public class StartGame extends Activity{
 	private Button backButton;
 	private Button fastButton;
 	private Button clearButton;
+	private Button stayButton;
+	private Button doButton;
 	
 	protected void onCreate(Bundle savedInstanceState) {	
 		
@@ -50,6 +53,8 @@ public class StartGame extends Activity{
         //初始状态下点击(颜文字)按钮，显示4个按钮
         gameset = true;
         
+
+           
         gameImage = (ImageView)findViewById(R.id.image_game);
         dialogButton = (Button)findViewById(R.id.button_dialog);
         gamestartsetButton = (Button)findViewById(R.id.button_startgameset);
@@ -57,8 +62,13 @@ public class StartGame extends Activity{
         backButton = (Button)findViewById(R.id.button_backtotitle);
         fastButton = (Button)findViewById(R.id.button_fast);
         clearButton = (Button)findViewById(R.id.button_remove);
+        stayButton = (Button)findViewById(R.id.button_staychoice);
+        doButton = (Button)findViewById(R.id.button_dochoice);
         
-
+        
+        //设置选项为隐藏
+        stayButton.setVisibility(View.GONE);
+        doButton.setVisibility(View.GONE);
         
         backButton.setOnClickListener(new OnClickListener(){
 
@@ -74,7 +84,7 @@ public class StartGame extends Activity{
 
 			@Override
 			public void onClick(View v) {
-				Main.i = 391;
+				Main.i = 411;
 				Intent intent = new Intent(StartGame.this, StartGame.class);
 				startActivity(intent);		
 			}     	
@@ -128,8 +138,7 @@ public class StartGame extends Activity{
 		       	loadList.setOnItemClickListener(new OnItemClickListener(){//定义了ListView的点击子项响应方法
 
 		    	@Override
-		    	public void onItemClick(AdapterView<?> parent, View view, final int position,long id) 
-		    	{	 
+		    	public void onItemClick(AdapterView<?> parent, View view, final int position,long id) {	 
 		    		long l = System.currentTimeMillis();
 		    		Date date = new Date(l);
 		    		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -137,7 +146,6 @@ public class StartGame extends Activity{
 		    		
 		    		AlertDialog.Builder dialog = new AlertDialog.Builder(StartGame.this);
 		    		dialog.setMessage("进度保存在存档" + (position + 1) + "，确认？");
-		    		//只能点击对话框
 		    		dialog.setCancelable(false);
 		    		dialog.setPositiveButton("确认", new DialogInterface.OnClickListener(){
 		    			@Override
@@ -150,31 +158,55 @@ public class StartGame extends Activity{
 		    	    			loadList.setAdapter(adapter);//重新生成数据 
 		    				}
 		    			});  
-		    			dialog.setNegativeButton("取消",new DialogInterface.OnClickListener()
-		    			{
-		    				@Override
-		    				public void onClick(DialogInterface dialog, int which)
-		    				{ 
-		    				}
-		    			});  
-		    			dialog.show();
-		    		}  			
-		       	});
+		    		dialog.setNegativeButton("取消",new DialogInterface.OnClickListener(){
+		    		   @Override
+		    		   public void onClick(DialogInterface dialog, int which) {		   		    			   
+		    		        }
+		    		   });  
+		    	   dialog.show();
+		    	   }  			
+		    	});
 		       	
-		       	Button backtogame = (Button)findViewById(R.id.button_loadgameback);//定义菜单保存存档界面的返回键
+		        //定义菜单保存存档界面的返回键
+		       	Button backtogame = (Button)findViewById(R.id.button_loadgameback);
 		       	backtogame.setOnClickListener(new OnClickListener(){
-
 					@Override
-					public void onClick(View arg0) {
+					public void onClick(View arg0) {	
 						
 						Intent intent = new Intent(StartGame.this, StartGame.class);
 					    startActivity(intent);
 					}    		
-		       	});
-				
-			}
-        	
+		       	});				
+			}       	
         });
+        
+        
+        stayButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Main.i = Main.i + 100;
+				dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));
+				dialogButton.setVisibility(View.VISIBLE);
+				doButton.setVisibility(View.GONE);
+				stayButton.setVisibility(View.GONE);
+			}        	
+        });
+        
+        
+        doButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) { 		
+				Main.i = Main.i + 1100;				
+				dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));
+				dialogButton.setVisibility(View.VISIBLE);
+				doButton.setVisibility(View.GONE);
+				stayButton.setVisibility(View.GONE);
+			}       	
+        });
+        
+        
         
         //进入该活动时，首先根据i值加载对话内容与背景图片
         dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));
@@ -206,11 +238,19 @@ public class StartGame extends Activity{
         	gameImage.setImageResource(R.drawable.game8);
         }else if(Main.i >= 377 && Main.i < 397){
         	gameImage.setImageResource(R.drawable.game12);
-        }else if(Main.i >= 397 ){
+        }else if((Main.i >= 397 && Main.i < 521) || (Main.i >= 1510 && Main.i < 1524)){
         	gameImage.setImageResource(R.drawable.game13);
-        	if(Main.i == 411){
-        		
+        	if(Main.i == 411 ){
+        		dialogButton.setVisibility(View.INVISIBLE);
+        		stayButton.setVisibility(View.VISIBLE);
+        		doButton.setVisibility(View.VISIBLE);
         	}
+        }else if(Main.i >= 521 && Main.i < 533){
+        	gameImage.setImageResource(R.drawable.game14);
+        }else if(Main.i >= 533 && Main.i < 551){
+        	gameImage.setImageResource(R.drawable.game15);
+        }else if(Main.i >= 1524 && Main.i < 1532){
+        	gameImage.setImageResource(R.drawable.game16);
         }
         
         
@@ -252,7 +292,28 @@ public class StartGame extends Activity{
 					}else if(Main.i == 397){
 						gameImage.setImageResource(R.drawable.game13);
 					}else if(Main.i == 411){
+						//隐藏对话框并显示选项
 						dialogButton.setVisibility(View.GONE);
+						stayButton.setVisibility(View.VISIBLE);
+						doButton.setVisibility(View.VISIBLE);
+					}else if(Main.i == 521){
+						gameImage.setImageResource(R.drawable.game14);
+					}else if(Main.i == 533){
+						gameImage.setImageResource(R.drawable.game15);
+						
+						//高乃线通关
+					}else if(Main.i == 551){
+						Fold.save("gaonai", "1", StartGame.this);
+						Log.d("what", Fold.load("gaonai", StartGame.this));
+						Main.i --;
+					}else if(Main.i == 1524){
+						gameImage.setImageResource(R.drawable.game16);
+						
+						//诗馨线通关
+					}else if(Main.i == 1532){
+						Fold.save("shixin", "1", StartGame.this);
+						Log.d("what", Fold.load("shixin", StartGame.this));
+						Main.i --;
 					}
 				}	
 			});

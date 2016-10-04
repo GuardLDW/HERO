@@ -663,6 +663,78 @@ public class Fold {
         	editor.putString("408", "写完这句话后，诗馨傻傻的笑了笑。");
         	editor.putString("409", "可恶，事情怎么会变成这样。");
             editor.putString("410", "我该怎么办？");
+            
+            //点击了stayButton，高乃线
+        	editor.putString("510", "不行，让她知道我对我们都没有好处，要忍住。");
+        	editor.putString("511", "长时间的沉默，我和诗馨似乎都静止了一般。");
+        	editor.putString("512", "我渐渐的觉得有些不对劲，诗馨身上的负面情绪似乎正在快速的增长。");
+        	editor.putString("513", "这是怎么回事？我有些不知所措。");
+        	editor.putString("514", "先把诗馨身上的负面情绪吸收过来吧，跟以前一样，先集中注意力……");
+        	editor.putString("515", "但突然，诗馨从座位上跃起，顺着窗户跳了下去。");
+        	editor.putString("516", "在跳下前的一瞬间，诗馨流着泪，看着我所在的方向。");
+        	editor.putString("517", "我赶紧跑到窗户边，可一切都太迟了。");
+        	editor.putString("518", "诗馨的本上，写着最后一行字。");
+            editor.putString("519", "\"谢谢你们这段时间对我的照顾，我走了，你们不用再费心了。\"");
+        	editor.putString("520", "都是我的错，如果我刚才及时劝阻她，就不会……");
+        	editor.putString("521", "我离开了教室，行尸走肉般，一步步的向家中走去。");
+        	editor.putString("522", "忘不了诗馨的脸。");
+        	editor.putString("523", "学校中传来的喧哗，救护车的警报声，都被我抛在了身后。");
+        	editor.putString("524", "记不清是怎么走回来的，我无力地打开了屋门。");
+        	editor.putString("525", "高乃好像早已发现了什么异常，看到我回来后，急忙跑了过来。");
+        	editor.putString("526", "\"我刚才感觉到这片区域有一个巨大量的负面情绪产生又突然消失了，是诗馨出什么事了吗？\"");
+        	editor.putString("527", "\"她，她不在了。都是我害的。\"");
+        	editor.putString("528", "高乃扑了过来，抱住了我。");
+            editor.putString("529", "\"没事的。\"");
+        	editor.putString("530", "\"可是，我害死了她，我明明有机会救她的。\"");
+        	editor.putString("531", "\"这些都过去了，待会在想吧。\"");
+        	editor.putString("532", "……");
+        	editor.putString("533", "风和日丽的早上，我拿着一束花，与高乃一起往墓地走去。");
+        	editor.putString("534", "\"一年了呢。\"");
+        	editor.putString("535", "\"是啊。\"");
+        	editor.putString("536", "距离诗馨去世，已经过了整整一年的时间。");
+        	editor.putString("537", "这一年，很平静，人们都安逸地生活着。这算是我们给诗馨最大的礼物了吧。");
+        	editor.putString("538", "诗馨去世以后，我曾消极了一段时间。");
+            editor.putString("539", "但后来，我想明白了，诗馨既然这样选择了，不是为了自己，而是为了整个社会。");
+        	editor.putString("540", "我所能为诗馨做的只有持续不断地使用我的能力，去吸收世间的负面情绪，完成诗馨的愿望。");
+        	editor.putString("541", "在我消极的那段时间，高乃每天都陪着我，安慰我。");
+        	editor.putString("542", "当然，还有不可缺少的早饭……");
+        	editor.putString("543", "我轻轻的抱住了身边的高乃。");
+        	editor.putString("544", "\"啊？你这是干嘛，快松开。\"");
+        	editor.putString("545", "\"谢谢你了。\"");
+        	editor.putString("546", "笨蛋，我是强者，你是弱者，帮助你是应该做的。");
+        	editor.putString("547", "高乃的脸变得通红。");
+        	editor.putString("548", "回家的路上，阳光明媚，我们手挽着手，漫步在街道。");
+            editor.putString("549", "不管未来等待我的是什么困难，我都不会再迷茫。");
+            editor.putString("550", "因为，高乃会在我身边一直陪伴着我，帮助着我。");
+            editor.putString("551", "高乃线已通关");
+            
+            //点击了doButton，诗馨线
+            editor.putString("1510", "我抢过了她手中的笔，划掉了诗馨刚写的那句话。");
+        	editor.putString("1511", "同时我在底下又添上了一句话。");
+        	editor.putString("1512", "\"我是正义的英雄，是来帮助你的。你由我来拯救。\"");
+        	editor.putString("1513", "诗馨看了我写的话后，低下了头，久久没有动作。");
+        	editor.putString("1514", "难道我写了什么不合适的话吗？");
+        	editor.putString("1515", "过了一会儿，诗馨慢慢抬起了头，脸上有些许泪痕。");
+        	editor.putString("1516", "\"谢谢你了，你一定要好好拯救我。\"");
+        	editor.putString("1517", "\"放心吧。\"");
+        	editor.putString("1518", "这种用笔在纸上写字的交流方式，更像是上课怕老师发现时的动作，但此时却成为了我们唯一的交流方式。");
+            editor.putString("1519", "\"今天过的怎么样?\"");
+        	editor.putString("1520", "\"挺好的，今天我做出来老师在黑板上出的题了！\"");
+        	editor.putString("1521", "这样日常的对话已经持续了好多天，每天课间或是放学，我都会站在她身边。");
+        	editor.putString("1522", "笔和纸成为了我现在每天携带的必需品，虽然诗馨能稍微感觉到我的存在，但是还不足以看见我，更别提听见我说话了。");
+        	editor.putString("1523", "即使不能被看见，这样默默的在周围守护诗馨就够了，不仅保护了诗馨的安全，也维护了整个区域的稳定。");
+        	editor.putString("1524", "周末，久违的短暂休息时间，高乃躺在沙发上悠闲的看着电视。");
+        	editor.putString("1525", "而我嘛……");
+        	editor.putString("1526", "\"又去见诗馨啊？\"");
+        	editor.putString("1527", "\"没错！\"");
+        	editor.putString("1528", "我一边回答着一边跑出了家门。");
+            editor.putString("1529", "夕阳下，樱花盛开着，一位少女站在樱花树下，静静地赏着花。");
+        	editor.putString("1530", "一阵微风佛过，吹散了少女的长发，也吹动了枝条，几朵樱花从枝条上掉落。");
+        	editor.putString("1531", "与此同时，一位少年正从道路的远端走来。随着眼中画面不断地清晰，少年渐渐露出了微笑。");
+        	editor.putString("1532", "诗馨线已通关");
+
+            
+            
         	editor.commit();
     	}
  

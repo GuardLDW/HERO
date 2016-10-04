@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;activity.Speical&apos; to &apos;Special&apos;&#x0D;&#x0A;- Original project: &apos;GuardLDW&apos;&#x0D;&#x0A;- Original element: &apos;activity.Speical&apos;&#x0D;&#x0A;- Renamed element: &apos;activity.Special&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Speical&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;activity{Speical.java[Speical" matchStrategy="1" name="Special" qualified="false" references="true" similarDeclarations="false" stamp="1475584358895" textual="false" version="1.0"/>
+</session>

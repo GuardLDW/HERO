@@ -4,7 +4,7 @@ import activity.House;
 import activity.LogIn;
 import activity.Main;
 import activity.Register;
-import activity.Speical;
+import activity.Special;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;

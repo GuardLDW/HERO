@@ -20,11 +20,11 @@
 <fullyQualifiedTypeName name="android.view.ViewGroup"/>
 <fullyQualifiedTypeName name="activity.House"/>
 <fullyQualifiedTypeName name="activity.Register"/>
-<fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="util.HttpCallBackListener"/>
 <fullyQualifiedTypeName name="db.HeroDB"/>
 <fullyQualifiedTypeName name="com.hero.app.R"/>
-<fullyQualifiedTypeName name="com.hero.app.R.id"/>
 <fullyQualifiedTypeName name="com.hero.app.R.string"/>
+<fullyQualifiedTypeName name="com.hero.app.R.id"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
 </qualifiedTypeNameHistroy>

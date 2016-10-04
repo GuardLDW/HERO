@@ -14,6 +14,7 @@
         android:layout_marginLeft="45dp"
         android:layout_marginTop="35dp"
         android:background="#00FFFFFF"
+        android:textSize="22sp"
         android:text="进 入 游 戏" />
 
     <Button
@@ -23,6 +24,7 @@
         android:layout_below="@+id/button_entergame"
         android:layout_marginLeft="45dp"
         android:background="#00FFFFFF"
+        android:textSize="22sp"
         android:text="读 取 存 档" />
 
     <Button
@@ -32,6 +34,7 @@
         android:layout_below="@+id/button_setgame"
         android:layout_marginLeft="45dp"
         android:background="#00FFFFFF"
+        android:textSize="22sp"
         android:text="游 戏 社 区" />
 
     <Button
@@ -40,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_housegame"
         android:layout_marginLeft="45dp"
+        android:textSize="22sp"
         android:background="#00FFFFFF"
         android:text="离 开 游 戏" />
 
@@ -49,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_loadgame"
         android:layout_marginLeft="45dp"
+        android:textSize="22sp"
         android:background="#00FFFFFF"
         android:text="游 戏 设 置" />
 
@@ -59,6 +64,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/button_setgame"
         android:layout_marginRight="43dp"
+        android:textSize="22sp"
         android:layout_marginTop="21dp"
         android:background="#00FFFFFF"
         android:text="登录" />
@@ -71,6 +77,7 @@
         android:layout_marginRight="13dp"
         android:layout_toLeftOf="@+id/button_mainlogin"
         android:background="#00FFFFFF"
+        android:textSize="22sp"
         android:text="注册" />
 
     <Button
@@ -81,6 +88,7 @@
         android:layout_alignBottom="@+id/button_exitgame"
         android:layout_toLeftOf="@+id/button_mainregister"
         android:background="#00FFFFFF"
+        android:textSize="22sp"
         android:text="特别篇" />
 
 </RelativeLayout>
