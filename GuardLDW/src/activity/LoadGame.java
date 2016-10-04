@@ -32,6 +32,7 @@ public class LoadGame extends Activity{
                              "存档4          XXXX.XX.XX.XX.XX.XX","存档5          XXXX.XX.XX.XX.XX.XX","存档6          XXXX.XX.XX.XX.XX.XX",
                             };
     
+    
 	private ListView loadList;
 	private Button backButton;
 	
@@ -65,41 +66,14 @@ public class LoadGame extends Activity{
       	loadList.setOnItemClickListener(new OnItemClickListener(){//ListView的点击子项响应方法
 		
        		@Override
-       		public void onItemClick(AdapterView<?> parent, View view, int position,
-       				long id) {   			
-       			if(position == 0){   //position是数组中的下标
-       				Main.i = Integer.parseInt(Fold.load("savei0", LoadGame.this));//将字符形式的MainActivity.i转化为整形并读取
+       		public void onItemClick(AdapterView<?> parent, View view, int position,long id) {   			
+       			
+       				Main.i = Integer.parseInt(Fold.load("savei" + position, LoadGame.this));//将字符形式的MainActivity.i转化为整形并读取
        				Intent intent = new Intent(LoadGame.this, StartGame.class);
        				startActivity(intent);//开始加载游戏（通过进入游戏的布局）
-       			}
-       			else if(position == 1){   
-       				Main.i = Integer.parseInt(Fold.load("savei1", LoadGame.this));
-       				Intent intent = new Intent(LoadGame.this, StartGame.class);
-       				startActivity(intent);
-       			}
-       			else if(position == 2){   
-       				Main.i = Integer.parseInt(Fold.load("savei2", LoadGame.this));
-       				Intent intent = new Intent(LoadGame.this, StartGame.class);
-       				startActivity(intent);
-       			}
-       			else if(position == 3){   
-       				Main.i = Integer.parseInt(Fold.load("savei3", LoadGame.this));
-       				Intent intent = new Intent(LoadGame.this, StartGame.class);
-       				startActivity(intent);
-       			}
-       			else if(position == 4){   
-       				Main.i = Integer.parseInt(Fold.load("savei4", LoadGame.this));
-       				Intent intent = new Intent(LoadGame.this, StartGame.class);
-       				startActivity(intent);
-       			}
-       			else if(position == 5){   
-       				Main.i = Integer.parseInt(Fold.load("savei5", LoadGame.this));
-       				Intent intent = new Intent(LoadGame.this, StartGame.class);
-       				startActivity(intent);
-       			}
-       		}       		 
-      	});
-	}
+       				}     		 
+       		});
+      	}
 	
 
 	
@@ -130,9 +104,5 @@ public class LoadGame extends Activity{
 		return;		
     }
 
-   
-
-	
-	
-	
+ 
 }

@@ -9,7 +9,6 @@
         android:id="@+id/image_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/game2"
         android:scaleType="fitXY" />
 
     <Button
@@ -42,9 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/button_startgameset"
         android:layout_centerVertical="true"
-        android:text="" 
-        android:background="#00FFFFFF"
-        android:enabled="false"/>
+        android:text="清除对话框" 
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/button_save"
@@ -53,9 +51,8 @@
         android:layout_alignLeft="@+id/button_remove"
         android:layout_alignRight="@+id/button_startgameset"
         android:layout_below="@+id/button_startgameset"
-        android:background="#00FFFFFF"
-        android:enabled="false"
-        android:text="" />
+        android:visibility="gone"
+        android:text="保存存档" />
 
     <Button
         android:id="@+id/button_backtotitle"
@@ -64,9 +61,9 @@
         android:layout_alignBaseline="@+id/button_save"
         android:layout_alignBottom="@+id/button_save"
         android:layout_alignRight="@+id/button_fast"
-        android:enabled="false"
-        android:background="#00FFFFFF"
-        android:text="" />
+        android:visibility="gone"
+        android:minWidth="110dp"
+        android:text="返回标题界面" />
 
     <Button
         android:id="@+id/button_fast"
@@ -75,17 +72,10 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="30dp"
         android:layout_toLeftOf="@+id/button_remove"
-        android:enabled="false"
-        android:background="#00FFFFFF"
-        android:text="" />
+        android:minWidth="110dp"
+        android:visibility="gone"
+        android:text="快进到选项" />
 
-    <Button
-        android:id="@+id/button_cancelset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/button_startgameset"
-        android:layout_marginRight="30dp"
-        android:background="#00FFFFFF"
-        android:text="( /= _ =) /" />
+
 
 </RelativeLayout>
