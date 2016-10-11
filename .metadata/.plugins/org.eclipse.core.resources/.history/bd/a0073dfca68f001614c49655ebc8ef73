@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#F5F5F5">
+    
+    
+        <RelativeLayout
+            android:id = "@+id/layout_logintitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#70f3ff" >
+
+            <Button
+                 android:id = "@+id/button_loginback"
+                 android:layout_width="35dp"
+                 android:layout_height="35dp"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginTop="7dp"
+                 android:background="@drawable/back" />
+            
+                           
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="用户登陆"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF">            
+            </TextView>
+        
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_loginwrite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp" >
+
+            <EditText
+                android:id="@+id/edittext_loginpassword"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/edittext_loginname"
+                android:layout_centerInParent="true"
+                android:hint="输入密码" />
+
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edittext_loginpassword"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:background="#70f3ff"
+                android:enabled="false"
+                android:text="登录"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/edittext_loginname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/edittext_loginpassword"
+                android:layout_alignParentTop="true"
+                android:hint="输入用户名" />
+
+            <TextView
+                android:id="@+id/textview_loginresult"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/edittext_loginpassword"
+                android:layout_below="@+id/button_login"
+                android:layout_marginTop="20dp"
+                android:text="显示是否登陆成功"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+</LinearLayout>

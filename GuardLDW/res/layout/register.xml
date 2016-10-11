@@ -53,9 +53,10 @@
                 android:layout_marginTop="20dp"
                 android:layout_below="@+id/edittext_registerpassword"
                 android:text="注册" 
-                android:background="#70f3ff" 
-                android:layout_centerInParent="true"
-                android:textColor="#FFFFFF"/>
+                android:background="#D8BFD8"
+                android:layout_centerInParent="true"            
+                android:textColor="#FFFFFF"
+                android:enabled="false"/>
 
             <EditText
                 android:id="@+id/edittext_registername"

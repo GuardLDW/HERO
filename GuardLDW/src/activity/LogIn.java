@@ -10,6 +10,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -58,6 +60,60 @@ public class LogIn extends Activity{
         
         resultTextView.setText("显示登录结果");
         
+        
+        //用户名输入框
+        usernameEditText.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+				// TODO Auto-generated method stub				
+			}
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				if(s.toString().equals("")){
+					loginButton.setEnabled(false);
+					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
+				}else{
+					loginButton.setEnabled(true);
+					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
+					
+				}
+			}
+        	
+        });
+        
+        
+        //密码输入框
+        passwordEditText.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+				// TODO Auto-generated method stub				
+			}
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				if(s.toString().equals("")){
+					loginButton.setEnabled(false);
+					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
+				}else{
+					loginButton.setEnabled(true);
+					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
+				}
+			}
+        	
+        });
+        
+        
         //定义返回键
         backButton.setOnClickListener(new OnClickListener(){
 			@Override
@@ -77,8 +133,6 @@ public class LogIn extends Activity{
 				intent.putExtra("key", "registerbutton");
 				sendBroadcast(intent);
 				
-				username = usernameEditText.getText().toString();
-				password = passwordEditText.getText().toString();
 				
 	
 				

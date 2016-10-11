@@ -12,6 +12,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -71,6 +73,59 @@ public class Register extends Activity{
         
         registerResultTextView.setText("显示注册结果");
         
+        //用户名输入框
+        usernameEditText.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+				// TODO Auto-generated method stub				
+			}
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				
+				//必须使用监听的Editable对象才能实时得到文本框内容
+				if(s.toString().equals("")){
+					registerButton.setEnabled(false);
+					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
+				}else{
+					registerButton.setEnabled(true);
+					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
+				}
+			}
+        	
+        });
+        
+        
+        //密码输入框
+        passwordEditText.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+				// TODO Auto-generated method stub				
+			}
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				if(s.toString().equals("")){
+					registerButton.setEnabled(false);
+					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
+				}else{
+					registerButton.setEnabled(true);
+					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
+				}
+			}
+        	
+        });
+        
         
         //注册按钮  
         registerButton.setOnClickListener(new OnClickListener(){
@@ -82,9 +137,6 @@ public class Register extends Activity{
 				intent.putExtra("key", "registerbutton");
 				sendBroadcast(intent);	
 				
-				//点击注册时，获取当前EditText上的username与password
-				username = usernameEditText.getText().toString();
-				password = passwordEditText.getText().toString();
                 
 	
 		

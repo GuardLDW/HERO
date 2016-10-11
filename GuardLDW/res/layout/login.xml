@@ -53,7 +53,8 @@
                 android:layout_below="@+id/edittext_loginpassword"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:background="#70f3ff"
+                android:background="#D8BFD8"
+                android:enabled="false"
                 android:text="登录"
                 android:textColor="#FFFFFF" />
 
