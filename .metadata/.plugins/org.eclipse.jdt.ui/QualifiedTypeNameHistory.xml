@@ -27,4 +27,7 @@
 <fullyQualifiedTypeName name="com.hero.app.R.string"/>
 <fullyQualifiedTypeName name="com.hero.app.R.id"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemLongClickListener"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="java.net.URLEncoder"/>
 </qualifiedTypeNameHistroy>

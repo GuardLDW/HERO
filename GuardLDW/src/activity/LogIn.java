@@ -1,5 +1,6 @@
 package activity;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -42,6 +44,7 @@ public class LogIn extends Activity{
 	//result值为1登录成功，值为2登录失败
 	private int result = 0;
 	List <User> userList = new ArrayList<User>();
+	private User user;
 	
 	public void onCreate(Bundle savedInstanceState){
 		
@@ -133,13 +136,35 @@ public class LogIn extends Activity{
 				intent.putExtra("key", "registerbutton");
 				sendBroadcast(intent);
 				
+				username = usernameEditText.getText().toString();
+				password = passwordEditText.getText().toString();
 				
-	
 				
-				HttpUtil.sendHttpGetRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", new HttpCallBackListener(){
+				user = new User(username, password, "");
+				
+							
+  
+				HttpUtil.sendHttpPostRequest("http://172.18.3.190:8081/smtest/index.php", user, new HttpCallBackListener(){
 
+		
 					@Override
 					public void onFinish(String response) {
+						
+					    //解析返回的json数据，包含着是否登录成功的信息
+						
+						
+						//index.php文件中返回的数据
+						if(response.equals("1")){
+							
+							
+						}else if(response.equals("0")){
+							
+						}
+						
+						
+						
+						
+						//判断用户名或密码是否匹配应该写在服务器端
 						userList = AnalyzeData.handleUserResponese(response);
 						if(userList != null){
 							//判断用户名与密码是否匹配

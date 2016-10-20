@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 import db.User;
 
@@ -60,6 +61,9 @@ public class HttpUtil {
 	
 	//向服务器的文件中提交json数据，传入一个User对象作为参数
 	public static void sendHttpPostRequest(final String address, final User successUser, final HttpCallBackListener listener){
+		
+		//主线程转圈
+		
 		new Thread(new Runnable(){
 			@Override
 			public void run() {
@@ -69,13 +73,20 @@ public class HttpUtil {
 					connection = (HttpURLConnection)url.openConnection();
 					connection.setRequestMethod("POST");
 		            connection.setConnectTimeout(3000);//设置连接超时时间
+		            connection.setReadTimeout(3000);
 		            connection.setDoInput(true);//打开输入流，以便从服务器获取数据
 		            connection.setDoOutput(true);//打开输出流，以便向服务器提交数据
 		            connection.setUseCaches(false);//使用Post方式不能使用缓存
+		            connection.setInstanceFollowRedirects(true);
+		            connection.connect();
 					DataOutputStream out = new DataOutputStream(connection.getOutputStream());
 					//Post提交的数据以键值对的形式存在，数据之间用&分隔
-					out.writeBytes("username=" + successUser.getUsername() + "&password=" + successUser.getPassword() +
-							"&comment=" + successUser.getComment());
+					//out.writeBytes("username=" + successUser.getUsername() + "&password=" + successUser.getPassword() +
+					//		"&comment=" + successUser.getComment());
+					out.writeBytes("username=" + URLEncoder.encode(successUser.getUsername(), "UTF-8") + "&pwd=" + URLEncoder.encode(successUser.getPassword(), "UTF-8"));
+					
+                    out.flush();
+                    out.close();
 					
 					//处理响应数据
 					InputStream in = connection.getInputStream();
@@ -104,4 +115,10 @@ public class HttpUtil {
 			}					
 			}).start();
 		}
+	
+	
+	
+	
+
+
 }

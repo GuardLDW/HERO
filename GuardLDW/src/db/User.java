@@ -10,7 +10,19 @@ public class User {
 	private String username;
 	private String password;
 	private String comment;
+	
+	public User(){
+		
+	}
 
+	public User(String username, String password, String comment){
+		
+		this.username = username;
+		this.password = password;
+		this.comment = comment;
+		
+		
+	}
 	
 	//set()
 	public void setUsername(String username){

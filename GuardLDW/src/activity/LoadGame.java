@@ -20,10 +20,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 import util.ActivityControl;
 import util.Fold;
 import util.Music;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class LoadGame extends Activity{
 	
@@ -63,7 +65,36 @@ public class LoadGame extends Activity{
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(LoadGame.this, android.R.layout.simple_list_item_1, save);
         loadList = (ListView)findViewById(R.id.listview_loadgame);
         loadList.setAdapter(adapter);
-      	loadList.setOnItemClickListener(new OnItemClickListener(){//ListView的点击子项响应方法
+        
+        //长按listviewset的监听
+        loadList.setOnItemLongClickListener(new OnItemLongClickListener(){
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+				
+				Main.i = Integer.parseInt(Fold.load("savei" + position, LoadGame.this));
+				if(Main.i >= 0 && Main.i <= 410){
+					Toast.makeText(LoadGame.this, "当前存档位于共同线", Toast.LENGTH_SHORT).show();
+				}else if(Main.i >= 510 && Main.i <= 551){
+					Toast.makeText(LoadGame.this, "当前存档位于高乃线",Toast.LENGTH_SHORT).show();
+				}else if(Main.i >= 1510 && Main.i <= 1532){
+					Toast.makeText(LoadGame.this, "当前存档位于诗馨线",Toast.LENGTH_SHORT).show();
+				}else if(Main.i == 411){
+					Toast.makeText(LoadGame.this, "当前存档位于第一个选项处",Toast.LENGTH_SHORT).show();
+				}
+				
+		        //如果返回false那么click仍然会被调用。而且是先调用Long click，然后调用click。 
+		        //如果返回true那么click就会被吃掉，click就不会再被调用了
+				return true;
+			}
+
+
+        	
+        	
+        });
+        
+        //ListView的点击子项响应方法（点击）
+      	loadList.setOnItemClickListener(new OnItemClickListener(){
 		
        		@Override
        		public void onItemClick(AdapterView<?> parent, View view, int position,long id) {   			

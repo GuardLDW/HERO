@@ -31,5 +31,15 @@ public class AnalyzeData {
 		}
 		return userList;
 	}
+	
+	
+	//返回登录或注册结果
+	public static int handleResultResponse(String response){
+		
+		
+		
+		return 0;
+		
+	}
 
 }
