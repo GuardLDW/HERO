@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+ <item
+        android:id="@+id/menu_save"
+        android:title="保存存档"/>
+    
+       
+    <item
+        android:id="@+id/menu_fast"
+        android:title="快进到选项"/>
+       
+    <item
+        android:id="@+id/menu_move"
+        android:title="清除对话框"/>
+    
+    <item
+        android:id="@+id/menu_back"
+        android:title="返回标题画面"/>
+    
+    <item
+        android:id="@+id/menu_exit"
+        android:title="退出"/>
+
+</menu>

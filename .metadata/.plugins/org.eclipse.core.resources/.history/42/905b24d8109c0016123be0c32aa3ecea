@@ -1,0 +1,42 @@
+package activity;
+
+import com.hero.app.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import util.ActivityControl;
+
+public class License extends Activity{
+	
+	private WebView licenseWebView;
+	
+	protected void onCreate(Bundle savedInstanceState) {
+    	
+		ActivityControl.addActivity(this);
+		super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.license);
+        
+        licenseWebView = (WebView)findViewById(R.id.lisence_webview);
+        licenseWebView.getSettings().setJavaScriptEnabled(true);
+        licenseWebView.setWebViewClient(new WebViewClient(){
+        	
+        	public boolean shouldOverrideUrlLoading(WebView view, String url){
+        		
+        		view.loadUrl(url);
+				return true;   		
+        	}
+        });
+        
+        licenseWebView.loadUrl("https://www.baidu.com");
+        
+        
+        
+        }
+
+}

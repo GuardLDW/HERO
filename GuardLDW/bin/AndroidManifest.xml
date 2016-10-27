@@ -60,6 +60,10 @@
         <activity 
             android:name = "activity.Special">          
         </activity>
+        
+        <activity 
+            android:name = "activity.License">          
+        </activity>
                 
         <receiver android:name = "receiver.NetworkReceiver">
             <intent-filter>
