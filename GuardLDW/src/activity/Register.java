@@ -79,7 +79,7 @@ public class Register extends BaseActivity{
 					User user = new User(userName, userPassword, "");
 						
 					//URL能够检测传递的用户名是否已被注册，如果被注册，返回注册失败，如果用户名未被注册，将用户的信息存入服务器的数据库，返回注册成功
-					HttpUtil.sendHttpPostRequest("http://www.GuardLDW.com", user, new HttpCallBackListener(){
+					HttpUtil.sendHttpPostRequest("http://GuardLDW/index.php", user, new HttpCallBackListener(){
 
 						@Override
 						public void onFinish(String response) {

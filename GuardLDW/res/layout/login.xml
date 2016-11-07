@@ -66,15 +66,7 @@
                 android:layout_alignParentTop="true"
                 android:hint="输入用户名" />
 
-            <TextView
-                android:id="@+id/textview_loginresult"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/edittext_loginpassword"
-                android:layout_below="@+id/button_login"
-                android:layout_marginTop="20dp"
-                android:text="显示是否登陆成功"
-                android:textSize="18sp" />
+
 
         </RelativeLayout>
 

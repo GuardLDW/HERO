@@ -1,0 +1,37 @@
+package activity;
+
+import com.hero.app.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import util.ActivityControl;
+
+public class License extends Activity{
+	
+	//WebView相当于浏览器的内核
+	private WebView licenseWebView;
+	
+	protected void onCreate(Bundle savedInstanceState) {
+    	
+		ActivityControl.addActivity(this);
+		super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.license);
+        
+        licenseWebView = (WebView)findViewById(R.id.webview_lisence);
+        licenseWebView.getSettings().setJavaScriptEnabled(true);
+        licenseWebView.setWebViewClient(new WebViewClient());
+        
+        //URL应设置为一段静态文本
+        licenseWebView.loadUrl("https://www.baidu.com");
+        
+        
+        
+        }
+
+}

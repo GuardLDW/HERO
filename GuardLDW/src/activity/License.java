@@ -2,26 +2,28 @@ package activity;
 
 import com.hero.app.R;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import util.ActivityControl;
+import android.widget.Button;
+import util.BaseActivity;
 
-public class License extends Activity{
+public class License extends BaseActivity{
 	
 	//WebView相当于浏览器的内核
 	private WebView licenseWebView;
 	
+	private Button backButton;
+	
 	protected void onCreate(Bundle savedInstanceState) {
     	
-		ActivityControl.addActivity(this);
 		super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.license);
+        
+        backButton = (Button)findViewById(R.id.button_licenseback);
+        backButton.setOnClickListener(new Listener());
         
         licenseWebView = (WebView)findViewById(R.id.webview_lisence);
         licenseWebView.getSettings().setJavaScriptEnabled(true);
@@ -30,8 +32,18 @@ public class License extends Activity{
         //URL应设置为一段静态文本
         licenseWebView.loadUrl("https://www.baidu.com");
         
-        
-        
-        }
+	}
+	
+	
+	private class Listener implements View.OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			
+			Intent intent = new Intent(License.this, Main.class);
+			startActivity(intent);
+			
+		}
+	}
 
 }

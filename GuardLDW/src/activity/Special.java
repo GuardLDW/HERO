@@ -1,19 +1,13 @@
 package activity;
 
 import com.hero.app.R;
-
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import util.ActivityControl;
+import util.BaseActivity;
 
-public class Special extends Activity{
+public class Special extends BaseActivity{
 		
 	private Button specialButton;
 	private TextView contentTextView;
@@ -21,23 +15,25 @@ public class Special extends Activity{
 	
 	protected void onCreate(Bundle savedInstanceState) {
     	
-		ActivityControl.addActivity(this);
 		super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.special);
         
         specialButton = (Button)findViewById(R.id.button_specialcontent);
+        specialButton.setOnClickListener(new Listener());
+             
         contentTextView = (TextView)findViewById(R.id.textview_special);
         
-        specialButton.setOnClickListener(new OnClickListener(){
+	}
+	
+	
+	private class Listener implements View.OnClickListener{
 
-			@Override
-			public void onClick(View arg0) {
-				contentTextView.setText("其实并没有什么特别篇...[欠揍脸]");				
-			}
-        	
-        });
+		@Override
+		public void onClick(View v) {
+			
+			contentTextView.setText("其实并没有什么特别篇...[欠揍脸]");	
+		}
+
 	}
 
 }

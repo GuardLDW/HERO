@@ -1,238 +1,161 @@
 package activity;
 
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import com.hero.app.R;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-import db.HeroDB;
 import db.User;
-import receiver.NetworkReceiver;
-import util.ActivityControl;
-import util.AnalyzeData;
+import util.BaseActivity;
 import util.HttpCallBackListener;
 import util.HttpUtil;
-import util.Music;
 
-public class LogIn extends Activity{
+public class LogIn extends BaseActivity{
 	
-	private EditText usernameEditText;
-	private EditText passwordEditText;
+	private EditText userNameEditText;
+	private EditText userPasswordEditText;
+	
 	private Button loginButton; 
 	private Button backButton;
-	private TextView resultTextView;
-	private  String username = "";
-	private String password = "";
-	static public String logInUsername;
-	//result值为1登录成功，值为2登录失败
-	private int result = 0;
-	List <User> userList = new ArrayList<User>();
-	private User user;
+	
+	private String userName;
+	private String userPassword;
+
+
 	
 	public void onCreate(Bundle savedInstanceState){
 		
-		ActivityControl.addActivity(this);
 		super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.login);
         
         
-        usernameEditText = (EditText)findViewById(R.id.edittext_loginname);
-        passwordEditText = (EditText)findViewById(R.id.edittext_loginpassword);
+        userNameEditText = (EditText)findViewById(R.id.edittext_loginname);
+        userNameEditText.addTextChangedListener(new EditTextListener());
+        
+        userPasswordEditText = (EditText)findViewById(R.id.edittext_loginpassword);
+        userPasswordEditText.addTextChangedListener(new EditTextListener());
+        
         loginButton = (Button)findViewById(R.id.button_login);
+        loginButton.setOnClickListener(new Listener());
+        
         backButton = (Button)findViewById(R.id.button_loginback);
-        resultTextView = (TextView)findViewById(R.id.textview_loginresult);
+        backButton.setOnClickListener(new Listener());
         
-        resultTextView.setText("显示登录结果");
+	}
         
-        
-        //用户名输入框
-        usernameEditText.addTextChangedListener(new TextWatcher(){
 
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-				// TODO Auto-generated method stub				
-			}
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub				
-			}
-			
-			@Override
-			public void afterTextChanged(Editable s) {
-				if(s.toString().equals("")){
-					loginButton.setEnabled(false);
-					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
-				}else{
-					loginButton.setEnabled(true);
-					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
-					
-				}
-			}
-        	
-        });
-        
-        
-        //密码输入框
-        passwordEditText.addTextChangedListener(new TextWatcher(){
+ 
+	
+	private class Listener implements View.OnClickListener{
 
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-				// TODO Auto-generated method stub				
-			}
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub				
-			}
+		@Override
+		public void onClick(View v) {
 			
-			@Override
-			public void afterTextChanged(Editable s) {
-				if(s.toString().equals("")){
-					loginButton.setEnabled(false);
-					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
-				}else{
-					loginButton.setEnabled(true);
-					loginButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
-				}
-			}
-        	
-        });
-        
-        
-        //定义返回键
-        backButton.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View arg0) {
+			if(v.getId() == R.id.button_loginback){
+				
 				Intent intent = new Intent(LogIn.this, Main.class);
 				startActivity(intent);
-			}      	
-        });
-        
-
-        loginButton.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View arg0) {
+				
+			}else if(v.getId() == R.id.button_login){
 				
                 //有网络的情况允许登录，无网络状况回到主界面
 				Intent intent = new Intent("com.hero.app.receiver.checknetwork");
-				intent.putExtra("key", "registerbutton");
+				intent.putExtra("key", "loginbutton");
 				sendBroadcast(intent);
 				
-				username = usernameEditText.getText().toString();
-				password = passwordEditText.getText().toString();
+				userName = userNameEditText.getText().toString();
+				userPassword = userPasswordEditText.getText().toString();
 				
+				User user = new User(userName, userPassword, "");
 				
-				user = new User(username, password, "");
-				
-							
-  
-				HttpUtil.sendHttpPostRequest("http://172.18.3.190:8081/smtest/index.php", user, new HttpCallBackListener(){
+				if (userName.length() > 0 && userName.length() <= 10  && userPassword.length() > 0 && userPassword.length() <= 10){				
+					
+					//URL能够检测传递的用户名与密码是否匹配，如果都匹配，则返回登录成功，如果不匹配，返回登录失败
+					HttpUtil.sendHttpPostRequest("http://GuardLDW/index.php", user, new HttpCallBackListener(){
 
-		
-					@Override
-					public void onFinish(String response) {
-						
-					    //解析返回的json数据，包含着是否登录成功的信息
-						
-						
-						//index.php文件中返回的数据
-						if(response.equals("1")){
+						@Override
+						public void onFinish(String response) {
 							
+							//如果返回登录成功
+							if(response.equals("")){
+								
+								Toast.makeText(LogIn.this, "登录成功", Toast.LENGTH_SHORT);
+								
+								//跳转到主界面
+								Intent intent = new Intent(LogIn.this, Main.class);
+								startActivity(intent);
 							
-						}else if(response.equals("0")){
-							
-						}
-						
-						
-						
-						
-						//判断用户名或密码是否匹配应该写在服务器端
-						userList = AnalyzeData.handleUserResponese(response);
-						if(userList != null){
-							//判断用户名与密码是否匹配
-							for (User user : userList){
-								if (username.equals(user.getUsername()) && password.equals(user.getPassword())){
-									result = 1;
-									
-									//建立数据库
-									//HeroDB.getInstance(LogIn.this, "User");
-									
-									//将当前登录的User对象的所有信息存入数据库，如果用户评论直接修改数据库中的对应值，再上传到服务器
-									//HeroDB.saveUser(user);
-									
-									//记录当前登录的用户的账号
-									logInUsername = user.getUsername();
-
-								}else{
-									result = 2;
-								}
+							//如果返回登录失败
+							}else{
+								
+								Toast.makeText(LogIn.this, "登录失败", Toast.LENGTH_SHORT);
+								userNameEditText.setText("");
+								userPasswordEditText.setText("");
 							}
-					    //userlist为空则无用户注册
-						}else{
-							result = 2;
-						}
 							
-					}
-					@Override
-					public void onError(Exception e) {
-						// TODO 自动生成的方法存根						
-					}
-				});
+						}
+
+						@Override
+						public void onError(Exception e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+					});
+				}
 			}
-        });
-        
-        if(result == 1){
-        	resultTextView.setText("登录成功，可进入游戏社区进行评论");
-        }else if(result == 2){
-        	resultTextView.setText("登录失败");
-        }
-        
-        
+			
+			
+		}
 	}
-
 	
-    @Override
-    public void onBackPressed()//对Back键的监听
-    { 
-    	AlertDialog.Builder dialog = new AlertDialog.Builder(LogIn.this);
-		dialog.setMessage("是否要退出游戏");
-		dialog.setCancelable(false);//只能点击对话框
-		dialog.setPositiveButton("确认", new DialogInterface.OnClickListener()
-		{
-			@Override
-			public void onClick(DialogInterface dialog, int which)
-			{
-				Music.stopBackgroundMusic();//如果音乐正在播放，停止音乐
-				ActivityControl.finishAll();
+	
+	
+	private class EditTextListener implements TextWatcher{
 
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			
+			//必须使用监听的Editable对象才能实时得到文本框内容
+			if(s.toString().equals("")){
+				
+				loginButton.setEnabled(false);
+				loginButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
+				
+			}else{
+				
+				loginButton.setEnabled(true);
+				loginButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
 			}
-		});  
-		dialog.setNegativeButton("取消",new DialogInterface.OnClickListener()
-		{
-			@Override
-			public void onClick(DialogInterface dialog, int which)
-			{ 
-			}
-		});  
-		dialog.show();
-		return;		
-    }
+		}
+	}
+	
+	
+	
 }
+
+						
+
+						
+						
+						
+						
+

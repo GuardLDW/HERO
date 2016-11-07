@@ -69,11 +69,7 @@
             android:name = "activity.License">          
         </activity>
         
-        <activity 
-            android:name = "activity.TestDB">   
-     
-            
-        </activity>
+
                 
         <receiver android:name = "receiver.NetworkReceiver">
             <intent-filter>

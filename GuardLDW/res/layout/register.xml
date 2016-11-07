@@ -66,15 +66,7 @@
                 android:layout_alignParentTop="true"
                 android:hint="用户名(10个字符以内)" />
 
-            <TextView
-                android:id = "@+id/textview_registerresult"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/edittext_registerpassword"
-                android:layout_below="@+id/button_register"
-                android:layout_marginTop="20dp"
-                android:text="显示是否注册成功"
-                android:textSize="18sp" />
+
             
         </RelativeLayout>
 
