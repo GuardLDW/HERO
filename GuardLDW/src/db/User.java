@@ -7,6 +7,7 @@ package db;
 
 public class User {
 
+	private int id;
 	private String username;
 	private String password;
 	private String comment;
@@ -17,6 +18,7 @@ public class User {
 
 	public User(String username, String password, String comment){
 		
+
 		this.username = username;
 		this.password = password;
 		this.comment = comment;
@@ -49,6 +51,10 @@ public class User {
 	
 	public String getComment(){
 		return comment;
+	}
+	
+	public int getId(){
+		return id;
 	}
 	
 

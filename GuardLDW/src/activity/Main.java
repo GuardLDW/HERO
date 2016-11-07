@@ -41,8 +41,8 @@ public class Main extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 		
 		super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main);
         ActivityControl.addActivity(this);
         
@@ -193,14 +193,8 @@ public class Main extends Activity{
 				ActivityControl.finishAll();
 
 			}
-		});  
-		dialog.setNegativeButton("È¡Ïû",new DialogInterface.OnClickListener()
-		{
-			@Override
-			public void onClick(DialogInterface dialog, int which)
-			{ 
-			}
-		});  
+		});
+		
 		dialog.show();
 		return;		
     }

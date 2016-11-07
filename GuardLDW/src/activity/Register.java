@@ -1,241 +1,159 @@
 package activity;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import com.hero.app.R;
-
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import db.User;
-import receiver.NetworkReceiver;
-import util.ActivityControl;
-import util.AnalyzeData;
+import util.BaseActivity;
 import util.HttpCallBackListener;
 import util.HttpUtil;
-import util.Music;
 
-public class Register extends Activity{
+
+public class Register extends BaseActivity{
 	
-	private EditText usernameEditText;
-	private EditText passwordEditText;
+	
+	private EditText userNameEditText;
+	private EditText userPasswordEditText;
 	private Button registerButton;
 	private Button backButton;
-	private TextView registerResultTextView;
-	//存储解析json数据后返回的User的list
-	private List <User> userList = new ArrayList<User>();
-	private String username = "";
-	private String password = "";
-	//显示注册的结果,1为成功，2为失败
-	private int result = 0;
-	//成功注册的账户
-	private User successUser;
 	
+	private String userName;
+	private String userPassword;
+
 	
 	protected void onCreate(Bundle savedInstanceState) {
     	
-		ActivityControl.addActivity(this);
 		super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.register);
        
         //定义返回键
         backButton = (Button)findViewById(R.id.button_registerback);
-        backButton.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View arg0) {
+        backButton.setOnClickListener(new Listener());
+        
+        registerButton = (Button)findViewById(R.id.button_register);
+        registerButton.setOnClickListener(new Listener());
+        
+        userNameEditText = (EditText)findViewById(R.id.edittext_registername);
+        userNameEditText.addTextChangedListener(new EditTextListener());
+        
+        userPasswordEditText = (EditText)findViewById(R.id.edittext_registerpassword);
+        userPasswordEditText.addTextChangedListener(new EditTextListener());
+        
+	}
+ 
+        
+	
+	
+	
+	private class Listener implements View.OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			
+			if(v.getId() == R.id.button_registerback){
+				
 				Intent intent = new Intent(Register.this, Main.class);
 				startActivity(intent);
-			}      	
-        });
-        
-        usernameEditText = (EditText)findViewById(R.id.edittext_registername);
-        passwordEditText = (EditText)findViewById(R.id.edittext_registerpassword);
-        registerResultTextView = (TextView)findViewById(R.id.textview_registerresult);
-        registerButton = (Button)findViewById(R.id.button_register);
-        
-        registerResultTextView.setText("显示注册结果");
-        
-        //用户名输入框
-        usernameEditText.addTextChangedListener(new TextWatcher(){
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-				// TODO Auto-generated method stub				
-			}
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub				
-			}
-			
-			@Override
-			public void afterTextChanged(Editable s) {
 				
-				//必须使用监听的Editable对象才能实时得到文本框内容
-				if(s.toString().equals("")){
-					registerButton.setEnabled(false);
-					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
-				}else{
-					registerButton.setEnabled(true);
-					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
-				}
-			}
-        	
-        });
-        
-        
-        //密码输入框
-        passwordEditText.addTextChangedListener(new TextWatcher(){
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-				// TODO Auto-generated method stub				
-			}
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub				
-			}
-			
-			@Override
-			public void afterTextChanged(Editable s) {
-				if(s.toString().equals("")){
-					registerButton.setEnabled(false);
-					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
-				}else{
-					registerButton.setEnabled(true);
-					registerButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
-				}
-			}
-        	
-        });
-        
-        
-        //注册按钮  
-        registerButton.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View arg0) {	
-							
-                //有网络的情况允许注册，无网络状况回到主界面
+			}else if(v.getId() == R.id.button_register){
+				
+	            //有网络的情况允许注册，无网络状况回到主界面
 				Intent intent = new Intent("com.hero.app.receiver.checknetwork");
 				intent.putExtra("key", "registerbutton");
 				sendBroadcast(intent);	
 				
-                
-	
-		
-			   //用户名与密码长度都在1-10，并且用户名不重复
-				if (username.length() > 0 && username.length() <= 10  && password.length() > 0 && password.length() <= 10){				
-					HttpUtil.sendHttpGetRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", new HttpCallBackListener(){
+				userName = userNameEditText.getText().toString();
+				userPassword = userPasswordEditText.getText().toString();
+					
+				//用户名与密码长度都在1-10，并且用户名不重复
+				if (userName.length() > 0 && userName.length() <= 10  && userPassword.length() > 0 && userPassword.length() <= 10){	
 						
-						@Override		
-						public void onFinish(String response) {	
-							
-							Log.d("what", "have response");	
-							
-							userList = AnalyzeData.handleUserResponese(response);//对返回的数据进行解析,返回User对象的链表							
-							//已有注册用户时，查询是否有用户名相同的情况
-							if (userList != null){
+					User user = new User(userName, userPassword, "");
+						
+					//URL能够检测传递的用户名是否已被注册，如果被注册，返回注册失败，如果用户名未被注册，将用户的信息存入服务器的数据库，返回注册成功
+					HttpUtil.sendHttpPostRequest("http://www.GuardLDW.com", user, new HttpCallBackListener(){
+
+						@Override
+						public void onFinish(String response) {
+								
+							//返回的是注册成功
+							if(response.equals("")){
 									
-								for(User user : userList){	
-										
-									if (username.equals(user.getUsername())){
-											
-										result = 2;	
-									}else{
-												
-										result = 1;
-										}
-									}	
-								//无注册用户时
-								}else{
-									result = 1;
-									}
+								Toast.makeText(Register.this, "注册成功", Toast.LENGTH_SHORT);
+	
+								//跳转到登录界面
+								Intent intent = new Intent(Register.this, LogIn.class);
+								startActivity(intent);
+								
+							//返回的是注册失败
+							}else{
+									
+								Toast.makeText(Register.this, "注册失败，请重新注册", Toast.LENGTH_SHORT);
+								userNameEditText.setText("");
+								userPasswordEditText.setText("");
 							}
-					@Override
-					public void onError(Exception e) {	
-						//没有正确返回数据
-						Log.d("what", "getInfo fail");
-					}	
-				});
-				//用户名与密码长度不符合要求
-				}else{
-					result = 2;
-					}	
+						}
+
+						@Override
+						public void onError(Exception e) {	
+							
+							Log.d("Register", "注册时出现错误");
+						}
+					});
 				}
-
-			});
-        
-        
-		   //注册成功后，将该用户的用户名与密码,评论（初始状态）提交到服务器
-	       if(result == 1){
-	        	registerResultTextView.setText("注册成功");
-	        	//为successUser分配空间
-	        	successUser = new User();
-	        	successUser.setUsername(username);
-	        	successUser.setPassword(password);
-	        	successUser.setComment("");
-	        	HttpUtil.sendHttpPostRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", successUser, new HttpCallBackListener(){
-
-					@Override
-					public void onFinish(String response) {
-						Log.d("what", "register success");				
-					}
-					@Override
-					public void onError(Exception e) {
-						// TODO Auto-generated method stub						
-					}	        	
-	        	});
-	        }else if(result == 2){
-	        	registerResultTextView.setText("注册失败，请重新注册");
-	        }
+			}	
+		}
 	}
+	
+	
+	private class EditTextListener implements TextWatcher{
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			
+			//必须使用监听的Editable对象才能实时得到文本框内容
+			if(s.toString().equals("")){
+				
+				registerButton.setEnabled(false);
+				registerButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
+				
+			}else{
+				
+				registerButton.setEnabled(true);
+				registerButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
+			}
+			
+		}
+		
+		
+	}
+
         
 
 	
 	
 	
-    @Override
-    public void onBackPressed()//对Back键的监听
-    { 
-    	AlertDialog.Builder dialog = new AlertDialog.Builder(Register.this);
-		dialog.setMessage("是否要退出游戏");
-		dialog.setCancelable(false);//只能点击对话框
-		dialog.setPositiveButton("确认", new DialogInterface.OnClickListener()
-		{
-			@Override
-			public void onClick(DialogInterface dialog, int which)
-			{
-				Music.stopBackgroundMusic();//如果音乐正在播放，停止音乐
-				ActivityControl.finishAll();
+   
 
-			}
-		});  
-		dialog.setNegativeButton("取消",new DialogInterface.OnClickListener()
-		{
-			@Override
-			public void onClick(DialogInterface dialog, int which)
-			{ 
-			}
-		});  
-		dialog.show();
-		return;		
-    }
 
 }

@@ -1,0 +1,18 @@
+package util;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+
+//子类的super.onCreate(savedInstanceState)可以打印出当前实例的类名
+
+public class BaseActivity extends Activity{
+	
+	protected void onCreate(Bundle savedInstanceState){
+		
+		super.onCreate(savedInstanceState);
+		Log.d("BaseActivity", getClass().getSimpleName());
+		
+	}
+
+}

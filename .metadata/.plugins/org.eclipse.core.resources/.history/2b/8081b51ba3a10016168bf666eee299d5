@@ -1,0 +1,11 @@
+package activity;
+
+public class SecondActivity extends BaseActivity{
+	
+	//context为传入数据的活动，data1，data2等是该活动需要的数据
+	public static void actionStart(Context context, String data1, String data2){
+		
+		
+	}
+
+}

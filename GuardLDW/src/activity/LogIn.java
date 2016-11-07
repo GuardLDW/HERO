@@ -173,10 +173,10 @@ public class LogIn extends Activity{
 									result = 1;
 									
 									//建立数据库
-									HeroDB.getInstance(LogIn.this, "User");
+									//HeroDB.getInstance(LogIn.this, "User");
 									
 									//将当前登录的User对象的所有信息存入数据库，如果用户评论直接修改数据库中的对应值，再上传到服务器
-									HeroDB.saveUser(user);
+									//HeroDB.saveUser(user);
 									
 									//记录当前登录的用户的账号
 									logInUsername = user.getUsername();

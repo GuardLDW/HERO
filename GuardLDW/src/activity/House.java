@@ -75,7 +75,7 @@ public class House extends Activity{
 				comment = commentEditText.getText().toString();
 				
 				//更改User数据库中名字为当前登录用户名的用户的comment属性
-				HeroDB.updateUserComment(comment, LogIn.logInUsername, "User");
+				//HeroDB.updateUserComment(comment, LogIn.logInUsername, "User");
 				
 				//将当前对象的数据提交到服务器
 				HttpUtil.sendHttpPostRequest("http://10.0.1.9:8026/weba/servlet/CustomerServlet", user, new HttpCallBackListener(){

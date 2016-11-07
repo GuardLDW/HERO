@@ -1,0 +1,52 @@
+package activity;
+
+import com.hero.app.R;
+
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import db.HeroDB;
+import util.ActivityControl;
+
+public class TestDB extends Activity{
+	
+	private Button creatDBButton;
+	
+	protected void onCreate(Bundle savedInstanceState) {
+    	
+		ActivityControl.addActivity(this);
+		super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.db);
+        
+        creatDBButton = (Button)findViewById(R.id.button_creatDB);
+        creatDBButton.setOnClickListener(new Listener());
+	}
+	
+	//内部类实现监听
+	class Listener implements android.view.View.OnClickListener{
+
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			
+			
+			
+		}
+
+		@Override
+		public void onClick(View v) {
+		
+			HeroDB.getInstance(TestDB.this, "user");
+			
+		}
+		
+	}
+
+
+}

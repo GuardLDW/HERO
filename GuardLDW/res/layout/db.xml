@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <Button
+        android:id="@+id/button_creatDB"
+        android:layout_width = "150dp"
+        android:layout_height = "80dp"
+        android:text="creat database">
+        
+    </Button>
+
+    <Button
+        android:id="@+id/button_creatTable"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="creat table" />
+
+    <Button
+        android:id="@+id/button_getData"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button_creatTable"
+        android:layout_marginTop="55dp"
+        android:text="get data" />
+
+        <Button
+            android:id="@+id/button_deleteData"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_alignBaseline="@+id/button_getData"
+            android:layout_alignBottom="@+id/button_getData"
+            android:layout_alignParentLeft="true"
+            android:text="delete Data" />
+
+        <Button
+            android:id="@+id/button_updateData"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/button_deleteData"
+            android:layout_marginTop="61dp"
+            android:text="update data" />
+    
+    </RelativeLayout>

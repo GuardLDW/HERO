@@ -1,0 +1,1 @@
+create table User(user_id integer primary key autoincrement, user_username text, user_password text ,user_comment text)
