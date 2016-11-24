@@ -19,7 +19,7 @@
         
         
         <activity
-            android:name="activity.Main"
+            android:name="activity.Index"
             android:screenOrientation="landscape">
                         
             <intent-filter>
@@ -30,6 +30,10 @@
 
         </activity>
         
+        <activity 
+            android:name = "activity.Main"
+            android:screenOrientation="landscape">          
+        </activity>
         
         <activity 
             android:name = "activity.Register">          
