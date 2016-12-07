@@ -19,8 +19,6 @@ public class HeroDB {
 	
 	private SQLiteDatabase db;
 	
-	
-	
 	public HeroDB(Context context, String DB_name){
 		
 		HeroOpenHelper dbHelper = new HeroOpenHelper(context, DB_name, null, VERSION);
@@ -60,29 +58,12 @@ public class HeroDB {
 			}
 			return list;			
 	}
-	
-	//根据传入的id删除相应的数据
-	public void deleteData(int id){
-		
-		db.delete("User", "id = ?", new String[] {id + ""});
-	}
-	
-	
-	//根据传入的id修改相应的数据
-	public void updateData(int id){
-		
-		ContentValues values = new ContentValues();
-		values.put("comment", "totally stupid");
-		db.update("User", values, "id = ?", new String[] {id + ""});
-	}
-	
-	
-	
+
+
 	//更新数据库中的用户评论
-	public void updateUserComment(String comment, String username,String DB_name){
-		ContentValues values = new ContentValues();
-		values.put("user_comment", comment);
-		db.update(DB_name, values, "user_name = ?", new String[]{comment});
+	public void deleteUserComment(int id){
+
+		//db.delete("user.db", "id = ?", new String[]{id + ""});
 	}
 
 	

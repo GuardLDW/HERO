@@ -18,7 +18,6 @@ public class User {
 
 	public User(String username, String password, String comment){
 		
-
 		this.username = username;
 		this.password = password;
 		this.comment = comment;

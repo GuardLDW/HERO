@@ -25,7 +25,6 @@
 <fullyQualifiedTypeName name="android.view.Menu"/>
 <fullyQualifiedTypeName name="android.view.MenuItem"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
-<fullyQualifiedTypeName name="db.HeroDB"/>
 <fullyQualifiedTypeName name="db.User"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -52,4 +51,5 @@
 <fullyQualifiedTypeName name="android.os.Message"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="util.BaseActivity"/>
+<fullyQualifiedTypeName name="db.HeroDB"/>
 </qualifiedTypeNameHistroy>

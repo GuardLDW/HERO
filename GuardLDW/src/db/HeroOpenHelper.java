@@ -9,7 +9,7 @@ import android.widget.Toast;
 public class HeroOpenHelper extends SQLiteOpenHelper{ 
 	
     //User±í
-	public static String CREATE_USER = "create table User(user_id integer primary key autoincrement, user_username text, user_password text, user_comment text)"; 
+	public static String CREATE_USER = "create table User(user_id integer primary key, user_username text, user_password text, user_comment text)"; 
 	
 	private Context mContext;
 	

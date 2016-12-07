@@ -24,7 +24,7 @@ public class StartGame extends BaseActivity{
 	private ImageView gameImage;
 	private Button dialogButton;
 	private Button gamestartsetButton;
-	private boolean gameset;
+	private boolean showSet;
 	private Button saveButton;
 	private Button backButton;
 	private Button fastButton;
@@ -61,18 +61,23 @@ public class StartGame extends BaseActivity{
         stayButton.setOnClickListener(new Listener());
         
         doButton = (Button)findViewById(R.id.button_dochoice);
-        doButton.setOnClickListener(new Listener());
+        doButton.setOnClickListener(new Listener());     
         
         
-        //³õÊ¼×´Ì¬ÏÂµã»÷(ÑÕÎÄ×Ö)°´Å¥£¬ÏÔÊ¾4¸ö°´Å¥
-        gameset = true;
-        
-        //ÉèÖÃÑ¡ÏîÎªÒş²Ø
+        //åˆå§‹çŠ¶æ€ä¸‹ç‚¹å‡»(é¢œæ–‡å­—)æŒ‰é’®ï¼Œæ˜¾ç¤º4ä¸ªæŒ‰é’®
+        showSet = true;
+        gamestartsetButton.setText("(ï½€ï½¥Ï‰ï½¥Â´)");
+
+        //è®¾ç½®éšè—button
         stayButton.setVisibility(View.GONE);
         doButton.setVisibility(View.GONE);
+        saveButton.setVisibility(View.GONE);
+        fastButton.setVisibility(View.GONE);
+        clearButton.setVisibility(View.GONE);
+        backButton.setVisibility(View.GONE);
 
         
-        //½øÈë¸Ã»î¶¯Ê±£¬Ê×ÏÈ¸ù¾İiÖµ¼ÓÔØ¶Ô»°ÄÚÈİÓë±³¾°Í¼Æ¬
+        //è¿›å…¥è¯¥æ´»åŠ¨æ—¶ï¼Œé¦–å…ˆæ ¹æ®iå€¼åŠ è½½å¯¹è¯å†…å®¹ä¸èƒŒæ™¯å›¾ç‰‡
         dialogButton.setText(Fold.loadScript(StartGame.this, String.valueOf(Main.i)));
         if(Main.i >= 0 && Main.i < 5){
         	
@@ -165,13 +170,14 @@ public class StartGame extends BaseActivity{
 				
 			}else if(v.getId() == R.id.button_startgameset){
 				
-				if(gameset){
+				if(showSet){
 
 					saveButton.setVisibility(View.VISIBLE);
 					backButton.setVisibility(View.VISIBLE);
 					fastButton.setVisibility(View.VISIBLE);
 					clearButton.setVisibility(View.VISIBLE);
-					gameset = false;
+			        gamestartsetButton.setText("(Â´ï½¥Ï‰ï½¥ï½€)");
+					showSet = false;
 					
 				}else{
 					
@@ -179,7 +185,8 @@ public class StartGame extends BaseActivity{
 					backButton.setVisibility(View.GONE);
 					fastButton.setVisibility(View.GONE);
 					clearButton.setVisibility(View.GONE);
-					gameset = true;
+			        gamestartsetButton.setText("(ï½€ï½¥Ï‰ï½¥Â´)");
+					showSet = true;
 				}
 				
 			}else if(v.getId() == R.id.button_staychoice){
@@ -200,14 +207,16 @@ public class StartGame extends BaseActivity{
 				
 			}else if(v.getId() == R.id.button_save){
 				
+			    Log.d("", "savebutton");
+				
 				setContentView(R.layout.loadgame);
 				
-				//ÔÚloadListÉèÖÃÊÊÅäÆ÷Ç°¸ü¸ÄsaveÊı×éµÄÖµ
+				//åœ¨loadListè®¾ç½®é€‚é…å™¨å‰æ›´æ”¹saveæ•°ç»„çš„å€¼
 		        Fold.checkSave(StartGame.this);			
-				final ArrayAdapter<String> adapter = new ArrayAdapter<String>(StartGame.this, android.R.layout.simple_list_item_1, LoadGame.save);//ÊÊÅäÆ÷ÖĞ´¢´æ×Å´æµµ¸ñÊ½
-		       	final ListView loadList = (ListView)findViewById(R.id.listview_loadgame);//ÁĞ±í×é¼ş
-		       	loadList.setAdapter(adapter);//Ê¹ÓÃÊÊÅäÆ÷£¬¼ÓÔØListViewµÄÖµ
-		       	loadList.setOnItemClickListener(new OnItemClickListener(){//¶¨ÒåÁËListViewµÄµã»÷×ÓÏîÏìÓ¦·½·¨
+				final ArrayAdapter<String> adapter = new ArrayAdapter<String>(StartGame.this, android.R.layout.simple_list_item_1, LoadGame.save);//é€‚é…å™¨ä¸­å‚¨å­˜ç€å­˜æ¡£æ ¼å¼
+		       	final ListView loadList = (ListView)findViewById(R.id.listview_loadgame);//åˆ—è¡¨ç»„ä»¶
+		       	loadList.setAdapter(adapter);//ä½¿ç”¨é€‚é…å™¨ï¼ŒåŠ è½½ListViewçš„å€¼
+		       	loadList.setOnItemClickListener(new OnItemClickListener(){//å®šä¹‰äº†ListViewçš„ç‚¹å‡»å­é¡¹å“åº”æ–¹æ³•
 
 		    	@Override
 		    	public void onItemClick(AdapterView<?> parent, View view, final int position,long id) {	 
@@ -217,20 +226,20 @@ public class StartGame extends BaseActivity{
 		    		final String str = dateFormat.format(date);
 		    		
 		    		AlertDialog.Builder dialog = new AlertDialog.Builder(StartGame.this);
-		    		dialog.setMessage("½ø¶È±£´æÔÚ´æµµ" + (position + 1) + "£¬È·ÈÏ£¿");
+		    		dialog.setMessage("è¿›åº¦ä¿å­˜åœ¨å­˜æ¡£" + (position + 1) + "ï¼Œç¡®è®¤ï¼Ÿ");
 		    		dialog.setCancelable(false);
-		    		dialog.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener(){
+		    		dialog.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener(){
 		    			@Override
 		    			public void onClick(DialogInterface dialog, int which){
-		    					//½«µ±Ç°iÖµÓë´æµµÊ±¼ä±£´æµ½ÏàÓ¦ÎÄ¼ş
-		    					Fold.save("save" + position, "´æµµ" + (position + 1) + "          " + str, StartGame.this);
+		    					//å°†å½“å‰iå€¼ä¸å­˜æ¡£æ—¶é—´ä¿å­˜åˆ°ç›¸åº”æ–‡ä»¶
+		    					Fold.save("save" + position, "å­˜æ¡£" + (position + 1) + "          " + str, StartGame.this);
 		    					Fold.save("savei" + position, String.valueOf(Main.i), StartGame.this);
-		    					//ÄÜ¹»¼´Ê±ÏÔÊ¾´æµµÊ±¼ä
-		    					LoadGame.save[position] = "´æµµ" + (position + 1) + "          " + str;
-		    	    			loadList.setAdapter(adapter);//ÖØĞÂÉú³ÉÊı¾İ 
+		    					//èƒ½å¤Ÿå³æ—¶æ˜¾ç¤ºå­˜æ¡£æ—¶é—´
+		    					LoadGame.save[position] = "å­˜æ¡£" + (position + 1) + "          " + str;
+		    	    			loadList.setAdapter(adapter);//é‡æ–°ç”Ÿæˆæ•°æ® 
 		    				}
 		    			});  
-		    		dialog.setNegativeButton("È¡Ïû",new DialogInterface.OnClickListener(){
+		    		dialog.setNegativeButton("å–æ¶ˆ",new DialogInterface.OnClickListener(){
 		    		   @Override
 		    		   public void onClick(DialogInterface dialog, int which) {		   		    			   
 		    		        }
@@ -239,7 +248,7 @@ public class StartGame extends BaseActivity{
 		    	   }  			
 		    	});
 		       	
-		        //¶¨Òå²Ëµ¥±£´æ´æµµ½çÃæµÄ·µ»Ø¼ü
+		        //å®šä¹‰èœå•ä¿å­˜å­˜æ¡£ç•Œé¢çš„è¿”å›é”®
 		       	Button backtogame = (Button)findViewById(R.id.button_loadgameback);
 		       	backtogame.setOnClickListener(new OnClickListener(){
 					@Override
@@ -253,7 +262,7 @@ public class StartGame extends BaseActivity{
 			}else if(v.getId() == R.id.button_dialog){
 				
 				dialogButton.setBackgroundColor(android.graphics.Color.parseColor("#afDA70D6"));
-				//µã»÷Ò»´Î°´Å¥iÖµ¼Ó1
+				//ç‚¹å‡»ä¸€æ¬¡æŒ‰é’®iå€¼åŠ 1
 				Boolean once = true;
 				if(once){
 					Main.i = Main.i + 1;
@@ -285,7 +294,7 @@ public class StartGame extends BaseActivity{
 					}else if(Main.i == 397){
 						gameImage.setImageResource(R.drawable.game13);
 					}else if(Main.i == 411){
-						//Òş²Ø¶Ô»°¿ò²¢ÏÔÊ¾Ñ¡Ïî
+						//éšè—å¯¹è¯æ¡†å¹¶æ˜¾ç¤ºé€‰é¡¹
 						dialogButton.setVisibility(View.GONE);
 						stayButton.setVisibility(View.VISIBLE);
 						doButton.setVisibility(View.VISIBLE);
@@ -294,7 +303,7 @@ public class StartGame extends BaseActivity{
 					}else if(Main.i == 533){
 						gameImage.setImageResource(R.drawable.game15);
 						
-						//¸ßÄËÏßÍ¨¹Ø
+						//é«˜ä¹ƒçº¿é€šå…³
 					}else if(Main.i == 551){
 						Fold.save("gaonai", "1", StartGame.this);
 						Log.d("what", Fold.load("gaonai", StartGame.this));
@@ -302,7 +311,7 @@ public class StartGame extends BaseActivity{
 					}else if(Main.i == 1524){
 						gameImage.setImageResource(R.drawable.game16);
 						
-						//Ê«Ü°ÏßÍ¨¹Ø
+						//è¯—é¦¨çº¿é€šå…³
 					}else if(Main.i == 1532){
 						Fold.save("shixin", "1", StartGame.this);
 						Log.d("what", Fold.load("shixin", StartGame.this));

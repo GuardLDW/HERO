@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import db.HeroDB;
 import db.User;
 import util.ActivityControl;
 import util.BaseActivity;
@@ -37,7 +38,9 @@ public class House extends BaseActivity{
 
 	private List<String> commentList;
 	private ArrayAdapter<String> adapter; 
-
+	
+	private List<User> userList;
+	private HeroDB userDB;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -58,7 +61,22 @@ public class House extends BaseActivity{
         commentEditText = (EditText)findViewById(R.id.edittext_comment);
         
         commentList = new ArrayList<String>();
+        
+        userDB = new HeroDB(House.this, "user.db");
+        
+        userList = new ArrayList<User>();
+        userList = userDB.loadUser();
+        if(userList != null){
+        	
+        	for(int i = 0; i < userList.size(); i++){
+        		
+        		commentList.add("玩家:" + userList.get(i).getComment());
+ 
+           	}
+        }
+        
         adapter = new ArrayAdapter<String>(House.this, android.R.layout.simple_list_item_1, commentList);
+        commentListView.setAdapter(adapter);
 	}
 	
 	
@@ -81,17 +99,17 @@ public class House extends BaseActivity{
 				
 				comment = commentEditText.getText().toString();
 				commentListView.setAdapter(adapter);
-				
-				
-				//假设能够提交到服务器并受到正确的返回信息
-				commentList.add(comment);
-				
+						
 				//用户名与密码应为当前登录账号的用户名与密码
-				//。。。。。
-				User user = new User("", "", comment);
+				//假设每次按评论的用户都不同
+				User currentUser = new User("", "", comment);
+				
+				//假设能够提交到服务器并收到正确的返回信息
+				commentList.add("玩家:" + comment);
+				userDB.saveUser(currentUser);
 				
 				//将评论提交到服务器，如果成功将数据存入相应对象的服务器数据库，返回评论成功，如果失败，返回评论失败
-				HttpUtil.sendHttpPostRequest("http://GuardLDW/index.php", user, new HttpCallBackListener(){
+				HttpUtil.sendHttpPostRequest("http://GuardLDW/index.php", currentUser, new HttpCallBackListener(){
 
 					@Override
 					public void onFinish(String response) {
@@ -115,6 +133,8 @@ public class House extends BaseActivity{
 						Log.d("House", "评论出错");
 					}					
 				});
+				
+				commentEditText.setText("");
 			}
 	
 		}
@@ -133,6 +153,9 @@ public class House extends BaseActivity{
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which){
+					
+					//删除该用户评论,即设置该用户的评论为空
+					userDB.deleteUserComment(position);
 					
 					commentList.remove(position);
 					commentListView.setAdapter(adapter);
