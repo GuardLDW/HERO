@@ -1,0 +1,159 @@
+package activity;
+
+
+import com.hero.app.R;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import db.User;
+import util.BaseActivity;
+import util.HttpCallBackListener;
+import util.HttpUtil;
+
+
+public class RegisterActivity extends BaseActivity{
+	
+	
+	private EditText userNameEditText;
+	private EditText userPasswordEditText;
+	private Button registerButton;
+	private Button backButton;
+	
+	private String userName;
+	private String userPassword;
+
+	
+	protected void onCreate(Bundle savedInstanceState) {
+    	
+		super.onCreate(savedInstanceState);
+        setContentView(R.layout.register);
+       
+        //定义返回键
+        backButton = (Button)findViewById(R.id.button_registerback);
+        backButton.setOnClickListener(new Listener());
+        
+        registerButton = (Button)findViewById(R.id.button_register);
+        registerButton.setOnClickListener(new Listener());
+        
+        userNameEditText = (EditText)findViewById(R.id.edittext_registername);
+        userNameEditText.addTextChangedListener(new EditTextListener());
+        
+        userPasswordEditText = (EditText)findViewById(R.id.edittext_registerpassword);
+        userPasswordEditText.addTextChangedListener(new EditTextListener());
+        
+	}
+ 
+        
+	
+	
+	
+	private class Listener implements View.OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			
+			if(v.getId() == R.id.button_registerback){
+				
+				Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+				startActivity(intent);
+				
+			}else if(v.getId() == R.id.button_register){
+				
+	            //有网络的情况允许注册，无网络状况回到主界面
+				Intent intent = new Intent("com.hero.app.receiver.checknetwork");
+				intent.putExtra("key", "registerbutton");
+				sendBroadcast(intent);	
+				
+				userName = userNameEditText.getText().toString();
+				userPassword = userPasswordEditText.getText().toString();
+					
+				//用户名与密码长度都在1-10，并且用户名不重复
+				if (userName.length() > 0 && userName.length() <= 10  && userPassword.length() > 0 && userPassword.length() <= 10){	
+						
+					User user = new User(userName, userPassword, "");
+						
+					//URL能够检测传递的用户名是否已被注册，如果被注册，返回注册失败，如果用户名未被注册，将用户的信息存入服务器的数据库，返回注册成功
+					HttpUtil.sendHttpPostRequest("http://GuardLDW/index.php", user, new HttpCallBackListener(){
+
+						@Override
+						public void onFinish(String response) {
+								
+							//返回的是注册成功
+							if(response.equals("")){
+									
+								Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT);
+	
+								//跳转到登录界面
+								Intent intent = new Intent(RegisterActivity.this, LogInActivity.class);
+								startActivity(intent);
+								
+							//返回的是注册失败
+							}else{
+									
+								Toast.makeText(RegisterActivity.this, "注册失败，请重新注册", Toast.LENGTH_SHORT);
+								userNameEditText.setText("");
+								userPasswordEditText.setText("");
+							}
+						}
+
+						@Override
+						public void onError(Exception e) {	
+							
+							Log.d("Register", "注册时出现错误");
+						}
+					});
+				}
+			}	
+		}
+	}
+	
+	
+	private class EditTextListener implements TextWatcher{
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			
+			//必须使用监听的Editable对象才能实时得到文本框内容
+			if(s.toString().equals("")){
+				
+				registerButton.setEnabled(false);
+				registerButton.setBackgroundColor(android.graphics.Color.parseColor("#D8BFD8"));
+				
+			}else{
+				
+				registerButton.setEnabled(true);
+				registerButton.setBackgroundColor(android.graphics.Color.parseColor("#70f3ff"));
+			}
+			
+		}
+		
+		
+	}
+
+        
+
+	
+	
+	
+   
+
+
+}

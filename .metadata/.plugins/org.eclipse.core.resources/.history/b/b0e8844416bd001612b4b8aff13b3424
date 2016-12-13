@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    
+            <RelativeLayout
+            android:id = "@+id/layout_settitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#70f3ff" >
+
+            <Button
+                 android:id = "@+id/button_setback"
+                 android:layout_width="35dp"
+                 android:layout_height="35dp"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginTop="7dp"
+                 android:background="@drawable/back" />
+            
+                           
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="游戏设置"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF">            
+            </TextView>
+        
+        </RelativeLayout>
+    
+           <!-- 定义一组单选按钮 -->
+
+       <RadioGroup
+           android:id="@+id/radiogroup_backgroundmusic"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/layout_settitle"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="21dp"
+           android:orientation="horizontal" >
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="背景音乐："
+               android:textSize="18sp" />
+
+           <RadioButton
+               android:id="@+id/radiobutton_havemusic"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="开启" />
+
+           <RadioButton
+               android:id="@+id/radiobutton_nomusic"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="关闭" />
+       </RadioGroup>
+
+</RelativeLayout>

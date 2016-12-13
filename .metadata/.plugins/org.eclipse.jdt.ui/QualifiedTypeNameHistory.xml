@@ -38,7 +38,6 @@
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
-<fullyQualifiedTypeName name="com.hero.app.R.id"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemLongClickListener"/>
 <fullyQualifiedTypeName name="android.os.Bundle"/>
 <fullyQualifiedTypeName name="android.R"/>
@@ -49,7 +48,8 @@
 <fullyQualifiedTypeName name="java.util.TimerTask"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="android.os.Message"/>
-<fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="util.BaseActivity"/>
 <fullyQualifiedTypeName name="db.HeroDB"/>
+<fullyQualifiedTypeName name="com.hero.app.R.id"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
 </qualifiedTypeNameHistroy>

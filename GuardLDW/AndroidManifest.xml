@@ -19,7 +19,7 @@
         
         
         <activity
-            android:name="activity.Index"
+            android:name="activity.IndexActivity"
             android:screenOrientation="landscape">
                         
             <intent-filter>
@@ -31,46 +31,46 @@
         </activity>
         
         <activity 
-            android:name = "activity.Main"
+            android:name = "activity.MainActivity"
             android:screenOrientation="landscape">          
         </activity>
         
         <activity 
-            android:name = "activity.Register">          
+            android:name = "activity.RegisterActivity">          
         </activity>
         
         
         <activity 
-            android:name = "activity.LogIn">          
+            android:name = "activity.LogInActivity">          
         </activity>
         
         
         <activity 
-            android:name = "activity.StartGame"
+            android:name = "activity.StartGameActivity"
             android:screenOrientation="landscape">          
         </activity>
         
         
         <activity 
-            android:name = "activity.LoadGame"
+            android:name = "activity.LoadGameActivity"
             android:screenOrientation="landscape">          
         </activity>
         
         <activity 
-            android:name = "activity.Set"
+            android:name = "activity.SetActivity"
             android:screenOrientation="landscape">          
         </activity>
         
         <activity 
-            android:name = "activity.House">          
+            android:name = "activity.HouseActivity">          
         </activity>
         
         <activity 
-            android:name = "activity.Special">          
+            android:name = "activity.SpecialActivity">          
         </activity>
         
         <activity 
-            android:name = "activity.License">          
+            android:name = "activity.LicenseActivity">          
         </activity>
         
 

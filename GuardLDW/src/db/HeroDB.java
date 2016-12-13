@@ -38,6 +38,7 @@ public class HeroDB {
 		}
 	}
 	
+	
 	//从数据库中读取数据，返回User类型的链表
 	public List <User> loadUser(){
 			List <User> list = new ArrayList<User>(); 
@@ -52,6 +53,7 @@ public class HeroDB {
 	                list.add(user);
 				}while(cursor.moveToNext());
 			}
+			
 			//将数据添加到List后，释放cursor空间
 			if(cursor != null){
 				cursor.close();
@@ -60,10 +62,15 @@ public class HeroDB {
 	}
 
 
-	//更新数据库中的用户评论
+	//删除数据库中的用户评论
 	public void deleteUserComment(int id){
 
-		//db.delete("user.db", "id = ?", new String[]{id + ""});
+		/*ContentValues values = new ContentValues();
+		values.put("user_comment", "");
+		db.update("User", values, "user_id = ?", new String[]{id + ""});
+		*/
+		
+		db.delete("User", "user_id = ?", new String[]{id + ""});
 	}
 
 	

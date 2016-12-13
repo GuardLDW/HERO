@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+        <RelativeLayout
+            android:id = "@+id/layout_loadgametitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#70f3ff" >
+
+            <Button
+                 android:id = "@+id/button_loadgameback"
+                 android:layout_width="35dp"
+                 android:layout_height="35dp"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginTop="7dp"
+                 android:background="@drawable/back" />
+            
+                           
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="读取存档"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF">            
+            </TextView>
+        
+        </RelativeLayout>
+        
+                
+        <ListView 
+            android:id="@+id/listview_loadgame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/layout_loadgametitle">
+            
+        </ListView>
+      
+
+
+        
+        
+
+</RelativeLayout>

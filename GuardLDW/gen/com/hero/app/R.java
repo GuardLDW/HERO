@@ -57,7 +57,8 @@ public final class R {
         public static final int button_setback=0x7f080028;
         public static final int button_setgame=0x7f08001c;
         public static final int button_special=0x7f080020;
-        public static final int button_specialcontent=0x7f08002d;
+        public static final int button_specialback=0x7f08002c;
+        public static final int button_specialcontent=0x7f08002e;
         public static final int button_startgameset=0x7f080002;
         public static final int button_staychoice=0x7f080008;
         public static final int edittext_comment=0x7f08000c;
@@ -75,11 +76,11 @@ public final class R {
         public static final int layout_write=0x7f080023;
         public static final int listview_comment=0x7f08000b;
         public static final int listview_loadgame=0x7f080012;
-        public static final int menu_license=0x7f08002e;
+        public static final int menu_license=0x7f08002f;
         public static final int radiobutton_havemusic=0x7f08002a;
         public static final int radiobutton_nomusic=0x7f08002b;
         public static final int radiogroup_backgroundmusic=0x7f080029;
-        public static final int textview_special=0x7f08002c;
+        public static final int textview_special=0x7f08002d;
         public static final int webview_lisence=0x7f08000f;
     }
     public static final class layout {

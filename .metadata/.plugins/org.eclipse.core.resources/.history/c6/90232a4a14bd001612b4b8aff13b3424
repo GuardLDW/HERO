@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    
+    <TextView
+        android:id = "@+id/textview_special"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="24sp"
+        android:text = "感谢各位玩家对游戏的支持"
+        />
+    
+    <Button
+        android:id = "@+id/button_specialcontent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/textview_special"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:text = "点这里">
+        
+    </Button>
+
+</RelativeLayout>

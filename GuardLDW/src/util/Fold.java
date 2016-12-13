@@ -12,7 +12,7 @@ import java.io.OutputStreamWriter;
 
 import com.hero.app.R;
 
-import activity.LoadGame;
+import activity.LoadGameActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -217,27 +217,27 @@ public class Fold {
     {
   	 
       	if(!Fold.load("save0", context).equals("0")){
-      		LoadGame.save[0] = Fold.load("save0", context);
+      		LoadGameActivity.save[0] = Fold.load("save0", context);
       		}
       	if(!Fold.load("save1", context).equals("0"))
    	 {
-   		 LoadGame.save[1] = Fold.load("save1", context);
+   		 LoadGameActivity.save[1] = Fold.load("save1", context);
    	 }
       	if(!Fold.load("save2", context).equals("0"))
    	 {
-   		 LoadGame.save[2] = Fold.load("save2", context);
+   		 LoadGameActivity.save[2] = Fold.load("save2", context);
    	 }
       	if(!Fold.load("save3", context).equals("0"))
    	 {
-   		 LoadGame.save[3] = Fold.load("save3", context);
+   		 LoadGameActivity.save[3] = Fold.load("save3", context);
    	 }
       	if(!Fold.load("save4", context).equals("0"))
    	 {
-   		 LoadGame.save[4] = Fold.load("save4", context);
+   		 LoadGameActivity.save[4] = Fold.load("save4", context);
    	 }
       	if(!Fold.load("save5", context).equals("0"))
    	 {
-   		 LoadGame.save[5] = Fold.load("save5", context);
+   		 LoadGameActivity.save[5] = Fold.load("save5", context);
    	 }
 
     

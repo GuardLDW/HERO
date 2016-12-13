@@ -40,11 +40,12 @@
               android:layout_weight="1">
            </ListView>
            
+          
           <LinearLayout
               android:layout_height="50dp"
               android:layout_width="match_parent"
-              android:orientation="horizontal"
-              >
+              android:orientation="horizontal">
+            
               <EditText 
               android:id = "@+id/edittext_comment"
               android:layout_width="0dp"
@@ -61,6 +62,7 @@
                   android:background="#FFFFFF">
                   
               </Button>
+              
           </LinearLayout>
 
             

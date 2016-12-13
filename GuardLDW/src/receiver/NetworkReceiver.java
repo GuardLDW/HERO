@@ -1,10 +1,10 @@
 package receiver;
 
-import activity.House;
-import activity.LogIn;
-import activity.Main;
-import activity.Register;
-import activity.Special;
+import activity.HouseActivity;
+import activity.LogInActivity;
+import activity.MainActivity;
+import activity.RegisterActivity;
+import activity.SpecialActivity;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -33,19 +33,20 @@ public class NetworkReceiver extends BroadcastReceiver{
 		if(networkInfo != null && networkInfo.isAvailable()){
 			if (key.equals("house")){
 				
-				Intent intent1 = new Intent(context, House.class);
+				Intent intent1 = new Intent(context, HouseActivity.class);
 				intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent1);
 			}else if(key.equals("register")){
 				
-				Intent intent2 = new Intent(context, Register.class);
+				Intent intent2 = new Intent(context, RegisterActivity.class);
 				intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent2);
 			}else if(key.equals("login")){
 				
-				Intent intent3 = new Intent(context, LogIn.class);
+				Intent intent3 = new Intent(context, LogInActivity.class);
 				intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent3);		
+				
 			//若点击注册或是登录按钮时有网络，则无需在此进行操作
 			}else if(key.equals("registerbutton")){
 				
@@ -57,20 +58,21 @@ public class NetworkReceiver extends BroadcastReceiver{
 		}
 		else{
 			Toast.makeText(context, "network is unavailable", Toast.LENGTH_SHORT).show();
+			
 			//无网络状态下点击注册按钮回到主界面
 			if(key.equals("registerbutton")){
 				
-				Intent intent4 = new Intent(context, Main.class);
+				Intent intent4 = new Intent(context, MainActivity.class);
 				intent4.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent4);		
 			}else if(key.equals("loginbutton")){
 				
-				Intent intent5 = new Intent(context, Main.class);
+				Intent intent5 = new Intent(context, MainActivity.class);
 				intent5.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent5);		
 			}else if(key.equals("commentbutton")){
 				
-				Intent intent6 = new Intent(context, Main.class);
+				Intent intent6 = new Intent(context, MainActivity.class);
 				intent6.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent6);	
 			}

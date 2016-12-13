@@ -1,6 +1,6 @@
 package util;
 
-import activity.Register;
+import activity.RegisterActivity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
